@@ -189,6 +189,8 @@ ${BREW} uninstall --debug --verbose --ignore-dependencies python
 ${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
 PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3* | sort -n | uniq | head -n1`"
 
+${BREW} reinstall --debug --verbose build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+
 # create python virtual environment 
 # * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
 mkdir "${VENV_PATH}"
