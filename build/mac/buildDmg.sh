@@ -242,7 +242,7 @@ ${PYTHON_PATH} -m pip list
 
 # TODO: remove me after you figure out the magic to getting virtualenv
 #       to actually install without trying to do the git clone and fail
-echo "test 7"
+echo "test 8"
 exit 0
 
 # get more info immediately post-python install
