@@ -187,7 +187,7 @@ ${BREW} reinstall --debug --verbose wget-1.24.5.ventura.bottle.tar.gz
 ${BREW} uninstall --debug --verbose --ignore-dependencies python
 #brew -v reinstall build/deps/python-3.7.8.catalina.bottle.tar.gz
 ${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
-PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3* | sort -n | uniq | head -n1`"
+PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
 
 ${BREW} reinstall --debug --verbose build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 
