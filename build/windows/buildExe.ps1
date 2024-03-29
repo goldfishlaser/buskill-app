@@ -114,7 +114,8 @@ ls "${tmpDir}\gnupg" | Out-String
 # confirm that the signature is valid. `gpgv` would exit 2 if the signature
 # isn't in our keyring (so we are effectively pinning it), it exits 1 if there's
 # any BAD signatures, and exits 0 "if everything is fine"
-gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
+#gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
+gpgv --keyring "${tmpDir}\pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 if ( $? -ne $true -or $LastExitCode -ne 0 ){
 	echo "ERROR: Invalid PGP signature!" | Out-String
 	exit 1 | Out-String
