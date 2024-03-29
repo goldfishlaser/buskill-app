@@ -121,12 +121,12 @@ dir "${tmpDir}\gnupg"
 dir "${tmpDir}\buskill-app-deps\build\deps"
 
 gpg --list-keys | Out-String
-gpg --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
-gpg --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
-gpg --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
-gpg --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
-gpg --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" --list-keys | Out-String
-gpg --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" --list-keys | Out-String
+gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" --list-keys | Out-String
 
 gpgv --keyring "${tmpDir}\gnupg\pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 gpgv --keyring "${tmpDir}\gnupg\pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
