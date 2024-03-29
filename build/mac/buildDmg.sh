@@ -190,7 +190,7 @@ ${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
 PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
 
 ${PYTHON_PATH} -m pip list
-${BREW} reinstall --debug --verbose build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} reinstall --debug --verbose --ignore-dependencies build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${PYTHON_PATH} -m pip list
 ${BREW} switch python 3.12
 ${PYTHON_PATH} -m pip list
