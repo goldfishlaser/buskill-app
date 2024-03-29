@@ -205,9 +205,9 @@ ${PYTHON_PATH} -m pip list
 # * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
 mkdir "${VENV_PATH}"
 #${PYTHON_PATH} -m virtualenv "${VENV_PATH}"
-ls -lah "{VENV_PATH}"
+ls -lah "${VENV_PATH}"
 virtualenv "${VENV_PATH}"
-ls -lah "{VENV_PATH}"
+ls -lah "${VENV_PATH}"
 PYTHON_PATH="${VENV_PATH}/bin/python"
 ${PYTHON_PATH} --version
 ${PYTHON_PATH} -m pip list
@@ -233,9 +233,9 @@ ${PYTHON_PATH} -m pip list
 # * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
 mkdir "${VENV_PATH}"
 #${PYTHON_PATH} -m virtualenv "${VENV_PATH}"
-ls -lah "{VENV_PATH}"
+ls -lah "${VENV_PATH}"
 virtualenv "${VENV_PATH}"
-ls -lah "{VENV_PATH}"
+ls -lah "${VENV_PATH}"
 PYTHON_PATH="${VENV_PATH}/bin/python"
 ${PYTHON_PATH} --version
 ${PYTHON_PATH} -m pip list
