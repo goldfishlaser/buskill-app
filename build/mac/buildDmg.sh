@@ -201,6 +201,17 @@ ${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps build/d
 ${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${PYTHON_PATH} -m pip list
 
+# create python virtual environment 
+# * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
+mkdir "${VENV_PATH}"
+#${PYTHON_PATH} -m virtualenv "${VENV_PATH}"
+ls -lah "{VENV_PATH}"
+virtualenv "${VENV_PATH}"
+ls -lah "{VENV_PATH}"
+PYTHON_PATH="${VENV_PATH}/bin/python"
+${PYTHON_PATH} --version
+${PYTHON_PATH} -m pip list
+
 ${BREW} uninstall --debug --verbose --ignore-dependencies python
 #brew -v reinstall build/deps/python-3.7.8.catalina.bottle.tar.gz
 ${BREW} reinstall --debug --verbose build/deps/python-3.11.ventura.bottle.tar.gz
@@ -221,8 +232,13 @@ ${PYTHON_PATH} -m pip list
 # create python virtual environment 
 # * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
 mkdir "${VENV_PATH}"
-${PYTHON_PATH} -m virtualenv "${VENV_PATH}"
+#${PYTHON_PATH} -m virtualenv "${VENV_PATH}"
+ls -lah "{VENV_PATH}"
+virtualenv "${VENV_PATH}"
+ls -lah "{VENV_PATH}"
 PYTHON_PATH="${VENV_PATH}/bin/python"
+${PYTHON_PATH} --version
+${PYTHON_PATH} -m pip list
 
 # get more info immediately post-python install
 #ls -lah /usr/local/Cellar/python/
