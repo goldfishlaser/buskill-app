@@ -116,6 +116,10 @@ ls "${tmpDir}\gnupg" | Out-String
 # any BAD signatures, and exits 0 "if everything is fine"
 #gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 
+dir "${tmpDir}"
+dir "${tmpDir}\gnupg"
+dir "${tmpDir}\buskill-app-deps\build\deps"
+
 gpg --list-keys | Out-String
 gpg --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
 gpg --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
