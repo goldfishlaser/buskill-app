@@ -191,6 +191,8 @@ PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 
 
 ${PYTHON_PATH} -m pip list
 HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1 ${BREW} install --debug --verbose --ignore-dependencies --skipcask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --ignore-dependencies --skipcask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --ignore-dependencies --skipcask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${PYTHON_PATH} -m pip list
 ${BREW} switch python 3.12
 ${PYTHON_PATH} -m pip list
