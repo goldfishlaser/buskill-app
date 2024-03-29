@@ -190,7 +190,11 @@ ${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
 PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
 
 ${PYTHON_PATH} -m pip list
-HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1 ${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --ignore-dependencies build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --ignore-dependencies --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --skip-cask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} install --debug --verbose --skip-cask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 ${PYTHON_PATH} -m pip list
