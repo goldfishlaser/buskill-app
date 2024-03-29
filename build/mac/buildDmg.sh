@@ -240,6 +240,10 @@ PYTHON_PATH="${VENV_PATH}/bin/python"
 ${PYTHON_PATH} --version
 ${PYTHON_PATH} -m pip list
 
+# TODO: remove me after you figure out the magic to getting virtualenv
+#       to actually install without trying to do the git clone and fail
+exit 0
+
 # get more info immediately post-python install
 #ls -lah /usr/local/Cellar/python/
 #find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
