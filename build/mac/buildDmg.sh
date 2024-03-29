@@ -184,12 +184,12 @@ ls -lah ${cacheDir}
 ${BREW} reinstall --debug --verbose wget-1.24.5.ventura.bottle.tar.gz
 
 ${BREW} uninstall --debug --verbose --ignore-dependencies python
-${BREW} install --debug --verbose --ignore-dependencies build/deps/python-3.12.ventura.bottle.tar.gz
+${BREW} reinstall --debug --verbose --ignore-dependencies build/deps/python-3.12.ventura.bottle.tar.gz
 PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
 
 ${PYTHON_PATH} -m pip list
 ${BREW} uninstall --debug --verbose --ignore-dependencies virtualenv
-${BREW} install --debug --verbose --ignore-dependencies build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
+${BREW} reinstall --debug --verbose --ignore-dependencies build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
 
 # get more info immediately post-python install
 ls -lah /usr/local/Cellar/python/
