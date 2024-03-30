@@ -207,7 +207,8 @@ ${PYTHON_PATH} -m venv "${VENV_PATH}"
 ls -lah "${VENV_PATH}"
 virtualenv "${VENV_PATH}"
 ls -lah "${VENV_PATH}"
-PYTHON_PATH="${VENV_PATH}/bin/python"
+ls -lah "${VENV_PATH}/bin"
+PYTHON_PATH="${VENV_PATH}/bin/python3"
 ${PYTHON_PATH} --version
 ${PYTHON_PATH} -m pip list
 find /usr/local/ -type f -name virtualenv
