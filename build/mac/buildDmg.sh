@@ -26,6 +26,9 @@ BREW='/usr/local/bin/brew'
 PYTHON_VERSION="`${PYTHON_PATH} --version | cut -d' ' -f2`"
 PYTHON_EXEC_VERSION="`echo ${PYTHON_VERSION} | cut -d. -f1-2`"
 
+MACOS_VERSION="$(sw_vers -productVersion) | "
+MACOS_MAJOR_VERSION="$(sw_vers -productVersion) | cut -d. -f1"
+
 # make PyInstaller produce reproducible builds. This will only affect the hash
 # randomization at build time. When the frozen app built by PyInstaller is
 # executed, hash randomization will be enabled (per defaults)
@@ -176,26 +179,34 @@ cat "${tmpDir}/buskill-app-deps/build/deps/SHA256SUMS" | while read line; do
 	cp ${file_path} build/deps/
 done
 
-# install os-level depends
-#brew reinstall build/deps/wget-1.20.3_2.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/wget-1.24.5.ventura.bottle.tar.gz
-
 ${BREW} uninstall --debug --verbose --ignore-dependencies python
-#brew -v reinstall build/deps/python-3.7.8.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
+if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
+	#${BREW} reinstall --debug --verbose build/deps/python-3.7.8.catalina.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/python-3.11.catalina.bottle.tar.gz
+else
+	${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
+fi
+
 PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
 
+# install os-level depends
+if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
+	${BREW} reinstall --debug --verbose build/deps/wget-1.21.3.catalina.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/libmodplug-0.8.9.0.catalina.bottle.1.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2-2.26.0.catalina.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_image-2.6.2.catalina.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_mixer-2.6.2.catalina.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_ttf-2.20.1.catalina.bottle.tar.gz
+else
+	${BREW} reinstall --debug --verbose build/deps/wget-1.24.5.ventura.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2-2.30.1.ventura.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_image-2.8.2_1.ventura.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_mixer-2.8.0.ventura.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/sdl2_ttf-2.22.0.ventura.bottle.tar.gz
+	${BREW} reinstall --debug --verbose build/deps/libmodplug-0.8.9.0.ventura.bottle.tar.gz
+fi
+
 ${PYTHON_PATH} -m pip list
-#${BREW} reinstall build/deps/libmodplug-0.8.9.0.catalina.bottle.1.tar.gz
-${BREW} reinstall --debug --verbose build/deps/libmodplug-0.8.9.0.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2-2.0.12_1.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2-2.30.1.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_image-2.0.5.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_image-2.8.2_1.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_mixer-2.0.4.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_mixer-2.8.0.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_ttf-2.0.15.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_ttf-2.22.0.ventura.bottle.tar.gz
 
 # check contents of pip binary
 cat ${PIP_PATH}
@@ -238,8 +249,12 @@ ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/dep
 #find /usr/local/Cellar/python/ -type f -wholename *bin/pip3*
 
 # install kivy and all other python dependencies with pip
-#${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-1.11.1-cp311-cp311-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
-${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-macosx_10_9_universal2.whl
+if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
+	${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp311-cp311-macosx_10_9_universal2.whl
+else
+	${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-macosx_10_9_universal2.whl
+fi
+
 ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pyinstaller-6.5.0-py3-none-macosx_10_13_universal2.whl
 
 # INSTALL LATEST PIP PACKAGES
