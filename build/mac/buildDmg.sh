@@ -380,6 +380,7 @@ EOF
 sudo otool -L /usr/local/bin/gpg
 sudo otool -L /usr/lib/libSystem.B.dylib
 sudo otool -L ${PYTHON_PATH}
+sudo otool -l ${PYTHON_PATH}
 
 mkdir pyinstaller
 pushd pyinstaller
