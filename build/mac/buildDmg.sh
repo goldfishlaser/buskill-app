@@ -27,7 +27,7 @@ PYTHON_VERSION="`${PYTHON_PATH} --version | cut -d' ' -f2`"
 PYTHON_EXEC_VERSION="`echo ${PYTHON_VERSION} | cut -d. -f1-2`"
 
 MACOS_VERSION="$(sw_vers -productVersion) | "
-MACOS_MAJOR_VERSION="$(sw_vers -productVersion) | cut -d. -f1"
+MACOS_MAJOR_VERSION="$(sw_vers -productVersion | cut -d. -f1)"
 
 # make PyInstaller produce reproducible builds. This will only affect the hash
 # randomization at build time. When the frozen app built by PyInstaller is
