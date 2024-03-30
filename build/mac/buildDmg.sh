@@ -361,6 +361,10 @@ EOF
 # PYINSTALLER BUILD #
 #####################
 
+# list dynamically linked dependencies that we may need to include in our binary
+sudo otool -L /usr/local/bin/gpg
+sudo otool -L /usr/lib/libSystem.B.dylib
+
 mkdir pyinstaller
 pushd pyinstaller
 
