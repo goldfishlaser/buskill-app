@@ -240,7 +240,7 @@ ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/dep
 # install kivy and all other python dependencies with pip
 #${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-1.11.1-cp311-cp311-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
 ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-macosx_10_9_universal2.whl
-${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pyinstaller-4.7.tar.gz
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pyinstaller-6.5.0-py3-none-macosx_10_13_universal2.whl
 
 # INSTALL LATEST PIP PACKAGES
 # (this can only be done for packages that are cryptographically signed
