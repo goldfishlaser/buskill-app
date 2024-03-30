@@ -221,7 +221,6 @@ find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
 cat ${PIP_PATH}
 
 # get python essential dependencies
-#${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
 ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
 PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -n | uniq | head -n1`"
 
@@ -230,9 +229,8 @@ PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -
 #find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
 #find /usr/local/Cellar/python/ -type f -wholename *bin/pip3*
 
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-49.1.0-py3-none-any.whl
 ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-49.1.0-py3-none-any.whl
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/wheel-0.34.2-py2.py3-none-any.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/wheel-0.34.2-py2.py3-none-any.whl
 
 # get more info post-python install
 #ls -lah /usr/local/Cellar/python/
@@ -241,8 +239,8 @@ ${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-in
 
 # install kivy and all other python dependencies with pip
 #${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-1.11.1-cp311-cp311-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-macosx_10_9_universal2.whl
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pyinstaller-4.7.tar.gz
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-macosx_10_9_universal2.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pyinstaller-4.7.tar.gz
 
 # INSTALL LATEST PIP PACKAGES
 # (this can only be done for packages that are cryptographically signed
@@ -286,7 +284,7 @@ if [[ $? -ne 0 ]]; then
 	echo "ERROR: Invalid PGP signature!"
 	exit 1
 fi
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links "file:///${tmpDir}" "${tmpDir}/${filename}"
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links "file:///${tmpDir}" "${tmpDir}/${filename}"
 rm -rf "${tmpDir}"
 
 # libusb1
@@ -323,7 +321,7 @@ if [[ $? -ne 0 ]]; then
 	echo "ERROR: Invalid PGP signature!"
 	exit 1
 fi
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links "file:///${tmpDir}" "${tmpDir}/${filename}"
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links "file:///${tmpDir}" "${tmpDir}/${filename}"
 rm -rf "${tmpDir}"
 
 # re-disable internet access
