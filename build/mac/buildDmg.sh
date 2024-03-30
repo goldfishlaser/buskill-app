@@ -478,7 +478,7 @@ app = BUNDLE(coll,
 EOF
 cat ${APP_NAME}.spec
 
-${PYTHON_PATH} -m PyInstaller -y --clean --windowed "${APP_NAME}.spec"
+${PYTHON_PATH} -m PyInstaller -y --clean "${APP_NAME}.spec"
 
 pushd dist
 ls -lah
