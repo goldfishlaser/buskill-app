@@ -176,13 +176,9 @@ cat "${tmpDir}/buskill-app-deps/build/deps/SHA256SUMS" | while read line; do
 	cp ${file_path} build/deps/
 done
 
-# copy all our brew depends into the brew cache dir
-cacheDir=`brew --cache`
-ls -lah ${cacheDir}
-
 # install os-level depends
 #brew reinstall build/deps/wget-1.20.3_2.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose wget-1.24.5.ventura.bottle.tar.gz
+${BREW} reinstall --debug --verbose build/deps/wget-1.24.5.ventura.bottle.tar.gz
 
 ${BREW} uninstall --debug --verbose --ignore-dependencies python
 #brew -v reinstall build/deps/python-3.7.8.catalina.bottle.tar.gz
@@ -204,19 +200,6 @@ ${BREW} reinstall --debug --verbose build/deps/sdl2_ttf-2.22.0.ventura.bottle.ta
 # check contents of pip binary
 cat ${PIP_PATH}
 
-# get python essential dependencies
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --
-${BREW} uninstall --debug --verbose virtualenv
-${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
-${BREW} install --debug --verbose build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --skip-cask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --skip-cask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps --force build/deps/virtualenv-20-25.1.ventura.bottle.tar.gz
-${PYTHON_PATH} -m pip list
-
 # create python virtual environment 
 # * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
 mkdir "${VENV_PATH}"
@@ -228,61 +211,17 @@ PYTHON_PATH="${VENV_PATH}/bin/python"
 ${PYTHON_PATH} --version
 ${PYTHON_PATH} -m pip list
 find /usr/local/ -type f -name virtualenv
-
-${BREW} uninstall --debug --verbose --ignore-dependencies python
-#brew -v reinstall build/deps/python-3.7.8.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/python-3.11.ventura.bottle.tar.gz
-PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.11 | sort -n | uniq | head -n1`"
-
-${PYTHON_PATH} -m pip list
-${BREW} uninstall --debug --verbose virtualenv
-${BREW} reinstall --debug --verbose build/deps/python-3.11.ventura.bottle.tar.gz
-${BREW} install --debug --verbose build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --force build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --skip-cask-deps build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --skip-cask-deps --force build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${BREW} install --debug --verbose --ignore-dependencies --skip-cask-deps --force build/deps/virtualenv-20-17.0.ventura.bottle.tar.gz
-${PYTHON_PATH} -m pip list
-find /usr/local/ -type f -name virtualenv
-
-# create python virtual environment 
-# * https://github.com/BusKill/buskill-app/issues/78#issuecomment-2021558890
-mkdir "${VENV_PATH}"
-${PYTHON_PATH} -m venv "${VENV_PATH}"
-ls -lah "${VENV_PATH}"
-virtualenv "${VENV_PATH}"
-ls -lah "${VENV_PATH}"
-PYTHON_PATH="${VENV_PATH}/bin/python"
-${PYTHON_PATH} --version
-${PYTHON_PATH} -m pip list
-
-# TODO: remove me after you figure out the magic to getting virtualenv
-#       to actually install without trying to do the git clone and fail
-echo "test 10"
-exit 0
 
 # get more info immediately post-python install
-#ls -lah /usr/local/Cellar/python/
-#find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
-
-#${BREW} reinstall build/deps/libmodplug-0.8.9.0.catalina.bottle.1.tar.gz
-${BREW} reinstall --debug --verbose build/deps/libmodplug-0.8.9.0.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2-2.0.12_1.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2-2.30.1.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_image-2.0.5.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_image-2.8.2_1.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_mixer-2.0.4.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_mixer-2.8.0.ventura.bottle.tar.gz
-#${BREW} reinstall build/deps/sdl2_ttf-2.0.15.catalina.bottle.tar.gz
-${BREW} reinstall --debug --verbose build/deps/sdl2_ttf-2.22.0.ventura.bottle.tar.gz
+ls -lah /usr/local/Cellar/python/
+find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
 
 # check contents of pip binary
 cat ${PIP_PATH}
 
 # get python essential dependencies
-${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
+#${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
 PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -n | uniq | head -n1`"
 
 # get more info post-pip install
@@ -291,6 +230,7 @@ PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -
 #find /usr/local/Cellar/python/ -type f -wholename *bin/pip3*
 
 ${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-49.1.0-py3-none-any.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-49.1.0-py3-none-any.whl
 ${PIP_PATH} install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/wheel-0.34.2-py2.py3-none-any.whl
 
 # get more info post-python install
