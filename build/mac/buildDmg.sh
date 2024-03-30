@@ -222,7 +222,7 @@ cat ${PIP_PATH}
 
 # get python essential dependencies
 ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
-PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -n | uniq | head -n1`"
+#PIP_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/pip3* | sort -n | uniq | head -n1`"
 
 # get more info post-pip install
 #ls -lah /usr/local/Cellar/python/
