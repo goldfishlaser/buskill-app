@@ -383,10 +383,10 @@ EOF
 #####################
 
 # list dynamically linked dependencies that we may need to include in our binary
-sudo otool -L /usr/local/bin/gpg
-sudo otool -L /usr/lib/libSystem.B.dylib
-sudo otool -L ${PYTHON_PATH}
-sudo otool -l ${PYTHON_PATH}
+otool -L /usr/local/bin/gpg
+otool -L /usr/lib/libSystem.B.dylib
+otool -L ${PYTHON_PATH}
+otool -l ${PYTHON_PATH}
 
 mkdir pyinstaller
 pushd pyinstaller
