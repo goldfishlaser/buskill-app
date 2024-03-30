@@ -26,7 +26,7 @@ BREW='/usr/local/bin/brew'
 PYTHON_VERSION="`${PYTHON_PATH} --version | cut -d' ' -f2`"
 PYTHON_EXEC_VERSION="`echo ${PYTHON_VERSION} | cut -d. -f1-2`"
 
-MACOS_VERSION="$(sw_vers -productVersion) | "
+MACOS_VERSION="$(sw_vers -productVersion)"
 MACOS_MAJOR_VERSION="$(sw_vers -productVersion | cut -d. -f1)"
 
 # make PyInstaller produce reproducible builds. This will only affect the hash
@@ -59,6 +59,8 @@ print_debugging_info () {
 	date
 	uname -a
 	sw_vers
+	echo ${MACOS_VERSION}
+	echo ${MACOS_MAJOR_VERSION}
 	find /usr/local/Cellar -maxdepth 1
 	which python2
 	python2 --version
@@ -187,7 +189,11 @@ else
 	${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
 fi
 
-PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
+if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
+	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.11 | sort -n | uniq | head -n1`"
+else
+	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
+fi
 
 # install os-level depends
 if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
