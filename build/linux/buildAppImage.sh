@@ -231,7 +231,8 @@ rm -rf /tmp/squashfs4.4
 
 # We use this python-appimage release as a base for building our own python
 # AppImage. We only have to add our code and depends to it.
-cp build/deps/python3.7.8-cp37-cp37m-manylinux2014_x86_64.AppImage /tmp/python.AppImage
+#cp build/deps/python3.7.8-cp37-cp37m-manylinux2014_x86_64.AppImage /tmp/python.AppImage
+cp build/deps/python3.12.2-cp312-cp312-manylinux2014_x86_64.AppImage /tmp/python.AppImage
 chmod +x /tmp/python.AppImage
 pushd /tmp
 /tmp/python.AppImage --appimage-extract
@@ -252,7 +253,8 @@ ls -lah /tmp/kivy_appdir/usr/bin/
 # decent authentication and integrity checks on what it downloads from PyPI
 #  * https://security.stackexchange.com/a/234098/213165
 ${PYTHON} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file:`pwd`/build/deps/ build/deps/pip-24.0-py3-none-any.whl
-${PYTHON} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file:`pwd`/build/deps/ build/deps/Kivy-1.11.1-cp37-cp37m-manylinux2010_x86_64.whl
+#${PYTHON} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file:`pwd`/build/deps/ build/deps/Kivy-1.11.1-cp37-cp37m-manylinux2010_x86_64.whl
+${PYTHON} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file:`pwd`/build/deps/ build/deps/Kivy-2.3.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 
 # INSTALL LATEST PIP PACKAGES
 # (this can only be done for packages that are cryptographically signed
