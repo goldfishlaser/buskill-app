@@ -343,8 +343,11 @@ class BusKill:
 			self.APP_DIR = self.EXE_PATH.split( os.sep )[0:-3]
 			self.APP_DIR = os.sep.join( self.APP_DIR )
 
-			# on MacOS, the exe lives in the same dir with all our other src files
-			self.SRC_DIR = self.EXE_DIR
+			# on MacOS, the SRC_DIR lives in a 'Resources' dir that's adjacent
+			# to the EXE_DIR
+			self.SRC_DIR = self.EXE_DIR.split( os.sep )[0:-1]
+			self.SRC_DIR.append('Resources')
+			self.SRC_DIR = os.sep.join( self.SRC_DIR )
 
 		# normally the BusKill app is built into a platform-specific executable with
 		# PyInstaller. But if we're executing it directly as a script, then some of
