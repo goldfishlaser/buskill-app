@@ -1309,6 +1309,8 @@ class BusKillApp(App):
 			font_roboto_mono_path = [f for f in font_paths if f.lower().endswith("robotomono-regular.ttf")]
 			font_mdicons_path = [f for f in font_paths if f.lower().endswith("materialicons-regular.ttf")]
 
+			print( "font_paths:|" +str(font_paths)+ "|" )
+
 			msg = "DEBUG: Found Roboto Mono " + str(font_roboto_mono_path)
 			print( msg ); logger.debug( msg )
 			msg = "DEBUG: Found Material Icons " + str(font_mdicons_path)
