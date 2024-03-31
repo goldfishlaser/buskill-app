@@ -1256,7 +1256,7 @@ class BusKillApp(App):
 					font_paths.add( font_path )
 
 	# TODO: remove me
-	msg = "DEBUG: system_fonts_dirs:|" +str(len(LabelBase.get_system_fonts_dir()))+ " font files."
+	msg = "DEBUG: system_fonts_dirs:|" +str(LabelBase.get_system_fonts_dir())+ " font files."
 	print( msg ); logger.debug( msg )
 
 	msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
