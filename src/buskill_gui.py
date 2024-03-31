@@ -1244,100 +1244,6 @@ class BusKillApp(App):
 	# objects for changing the kivy screen
 	manager = ScreenManager()
 
-	# FONTS
-	font_paths = set()
-	for fonts_dir_path in LabelBase.get_system_fonts_dir():
-
-		for root, dirs, files in os.walk(fonts_dir_path):
-			for file in files:
-				if file.lower().endswith(".ttf") \
-				 or file.lower().endswith(".otf"):
-					font_path = str(os.path.join(root, file))
-					font_paths.add( font_path )
-
-	# TODO: remove me
-	msg = "DEBUG: system_fonts_dirs:|" +str(LabelBase.get_system_fonts_dir())+ " font files."
-	print( msg ); logger.debug( msg )
-
-	msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
-	print( msg ); logger.debug( msg )
-
-	msg = "DEBUG: Default font = " + str(Config.get('kivy', 'default_font'))
-	print( msg ); logger.debug( msg )
-	
-	# register font aliases so we don't have to specify their full file path
-	# when setting font names in our kivy language .kv files
-	try:
-
-		# did the user set a custom font?
-		default_font = Config.get('kivy', 'default_font')
-		if 'Roboto' not in default_font:
-			# the user set a custom font; use it
-
-			try: 
-				# hack to convert a string of a list to an actual list
-				# * https://stackoverflow.com/a/35461204/1174102
-				default_font = json.loads(default_font.replace('\'', '"'))
-				font_name = default_font[0]
-				font_path = default_font[1]
-
-			except Exception as e:
-				pass
-
-			# bkmono = "BusKill Mono"; we just overwrite it with the user's font
-			LabelBase.register( "bkmono", default_font[1] )
-
-			# TODO; add logic to try to actually find an "italic", "bold", and
-			# "bolditalic" version of the user-selected font
-
-		else:
-			# the user did *not* set a custom font; use Roboto
-
-			# TODO: remove me
-			msg = "DEBUG: attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|"
-			print( msg ); logger.debug( msg )
-
-			LabelBase.register(
-			 "bkmono",
-			 os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ),
-			)
-
-			# TODO: remove me
-		msg = "DEBUG: attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|"
-		print( msg ); logger.debug( msg )
-
-		LabelBase.register(
-		 "mdicons",
-		 os.path.join( 'fonts', 'MaterialIcons-Regular.ttf' ),
-		)
-
-	except Exception as e:
-
-		msg = "INFO: Failed to load fonts (" +str(e) + ")"
-		print( msg ); logger.info( msg )
-
-		try: 
-
-			font_roboto_mono_path = [f for f in font_paths if f.lower().endswith("robotomono-regular.ttf")]
-			font_mdicons_path = [f for f in font_paths if f.lower().endswith("materialicons-regular.ttf")]
-
-			msg = "DEBUG: Found Roboto Mono " + str(font_roboto_mono_path)
-			print( msg ); logger.debug( msg )
-			msg = "DEBUG: Found Material Icons " + str(font_mdicons_path)
-			print( msg ); logger.debug( msg )
-
-			# just get the first file we found in all cases
-			font_roboto_mono_path = font_roboto_mono_path[0]
-			font_mdicons_path = font_mdicons_path[0]
-
-			LabelBase.register( "bkmono", font_roboto_mono_path )
-			LabelBase.register( "mdicons", font_mdicons_path )
-
-		except Exception as e:
-
-			msg = "WARNING: Failed to find fonts (" +str(e) + ")"
-			print( msg ); logger.warning( msg )
-
 	# copied mostly from 'site-packages/kivy/app.py'
 	def __init__(self, bk, **kwargs):
 
@@ -1350,6 +1256,102 @@ class BusKillApp(App):
 		super(BusKillApp, self).__init__(**kwargs)
 		self.options = kwargs
 		self.built = False
+
+		# FONTS
+		font_dirs = LabelBase.get_system_fonts_dir()
+		font_dirs.append( self.bk.EXE_DIR )
+		font_paths = set()
+		for fonts_dir_path in font_dirs:
+
+			for root, dirs, files in os.walk(fonts_dir_path):
+				for file in files:
+					if file.lower().endswith(".ttf") \
+					 or file.lower().endswith(".otf"):
+						font_path = str(os.path.join(root, file))
+						font_paths.add( font_path )
+
+		# TODO: remove me
+		msg = "DEBUG: font_dirs:|" +str(font_dirs)+ "|"
+		print( msg ); logger.debug( msg )
+
+		msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
+		print( msg ); logger.debug( msg )
+
+		msg = "DEBUG: Default font = " + str(Config.get('kivy', 'default_font'))
+		print( msg ); logger.debug( msg )
+		
+		# register font aliases so we don't have to specify their full file path
+		# when setting font names in our kivy language .kv files
+		try:
+
+			# did the user set a custom font?
+			default_font = Config.get('kivy', 'default_font')
+			if 'Roboto' not in default_font:
+				# the user set a custom font; use it
+
+				try: 
+					# hack to convert a string of a list to an actual list
+					# * https://stackoverflow.com/a/35461204/1174102
+					default_font = json.loads(default_font.replace('\'', '"'))
+					font_name = default_font[0]
+					font_path = default_font[1]
+
+				except Exception as e:
+					pass
+
+				# bkmono = "BusKill Mono"; we just overwrite it with the user's font
+				LabelBase.register( "bkmono", default_font[1] )
+
+				# TODO; add logic to try to actually find an "italic", "bold", and
+				# "bolditalic" version of the user-selected font
+
+			else:
+				# the user did *not* set a custom font; use Roboto
+
+				# TODO: remove me
+				msg = "DEBUG: attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|"
+				print( msg ); logger.debug( msg )
+
+				LabelBase.register(
+				 "bkmono",
+				 os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ),
+				)
+
+				# TODO: remove me
+			msg = "DEBUG: attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|"
+			print( msg ); logger.debug( msg )
+
+			LabelBase.register(
+			 "mdicons",
+			 os.path.join( 'fonts', 'MaterialIcons-Regular.ttf' ),
+			)
+
+		except Exception as e:
+
+			msg = "INFO: Failed to load fonts (" +str(e) + ")"
+			print( msg ); logger.info( msg )
+
+			try: 
+
+				font_roboto_mono_path = [f for f in font_paths if f.lower().endswith("robotomono-regular.ttf")]
+				font_mdicons_path = [f for f in font_paths if f.lower().endswith("materialicons-regular.ttf")]
+
+				msg = "DEBUG: Found Roboto Mono " + str(font_roboto_mono_path)
+				print( msg ); logger.debug( msg )
+				msg = "DEBUG: Found Material Icons " + str(font_mdicons_path)
+				print( msg ); logger.debug( msg )
+
+				# just get the first file we found in all cases
+				font_roboto_mono_path = font_roboto_mono_path[0]
+				font_mdicons_path = font_mdicons_path[0]
+
+				LabelBase.register( "bkmono", font_roboto_mono_path )
+				LabelBase.register( "mdicons", font_mdicons_path )
+
+			except Exception as e:
+
+				msg = "WARNING: Failed to find fonts (" +str(e) + ")"
+				print( msg ); logger.warning( msg )
 
 	# does rapid-fire UI-agnostic cleanup stuff when the GUI window is closed
 	def close( self, *args ):
