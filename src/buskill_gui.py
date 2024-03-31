@@ -1255,6 +1255,8 @@ class BusKillApp(App):
 					font_path = str(os.path.join(root, file))
 					font_paths.add( font_path )
 
+	print( "font_paths:|" +str(font_paths)+ "|" )
+
 	msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
 	print( msg ); logger.debug( msg )
 
@@ -1289,11 +1291,13 @@ class BusKillApp(App):
 		else:
 			# the user did *not* set a custom font; use Roboto
 
+		print( "attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|"
 			LabelBase.register(
 			 "bkmono",
 			 os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ),
 			)
 
+		print( "attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|"
 		LabelBase.register(
 		 "mdicons",
 		 os.path.join( 'fonts', 'MaterialIcons-Regular.ttf' ),
@@ -1308,8 +1312,6 @@ class BusKillApp(App):
 
 			font_roboto_mono_path = [f for f in font_paths if f.lower().endswith("robotomono-regular.ttf")]
 			font_mdicons_path = [f for f in font_paths if f.lower().endswith("materialicons-regular.ttf")]
-
-			print( "font_paths:|" +str(font_paths)+ "|" )
 
 			msg = "DEBUG: Found Roboto Mono " + str(font_roboto_mono_path)
 			print( msg ); logger.debug( msg )
