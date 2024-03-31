@@ -22,7 +22,7 @@ import platform, multiprocessing, traceback, subprocess
 import urllib.request, re, json, certifi, sys, os, grp, pwd, math, shutil, tempfile, random, gnupg, configparser
 import os.path
 from buskill_version import BUSKILL_VERSION
-from distutils.version import LooseVersion
+from packaging.version import Version
 from hashlib import sha256
 
 import logging
@@ -2027,7 +2027,7 @@ class BusKill:
 		msg += "DEBUG: Latest version: " +str(latestRelease)+ "."
 		print( msg ); logger.debug( msg )
 
-		if LooseVersion(latestRelease) <= LooseVersion(currentRelease):
+		if Version(latestRelease) <= Version(currentRelease):
 			msg = "INFO: Current version is latest version. No new updates available."
 			print( msg ); logger.info( msg )
 			return self.set_upgrade_result( 1 )
