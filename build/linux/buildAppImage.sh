@@ -469,6 +469,7 @@ export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH}"
 # the new version of mksquashfs no longer supports the '-mkfs-fixed-time'
 # argument, so we remove it
 args=\$(echo "\$@" | sed -e 's/-mkfs-fixed-time 0//')
+args=\$(echo "\$@" | sed -e 's/-mkfs-time 0//')
 $(which mksquashfs) \$args
 EOF
 
