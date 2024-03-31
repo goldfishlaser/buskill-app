@@ -1259,7 +1259,7 @@ class BusKillApp(App):
 
 		# FONTS
 		font_dirs = LabelBase.get_system_fonts_dir()
-		font_dirs.append( self.bk.EXE_DIR )
+		font_dirs.append( self.bk.APP_DIR )
 		font_paths = set()
 		for fonts_dir_path in font_dirs:
 
