@@ -1291,13 +1291,13 @@ class BusKillApp(App):
 		else:
 			# the user did *not* set a custom font; use Roboto
 
-		print( "attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|"
+			print( "attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|" )
 			LabelBase.register(
 			 "bkmono",
 			 os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ),
 			)
 
-		print( "attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|"
+		print( "attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|" )
 		LabelBase.register(
 		 "mdicons",
 		 os.path.join( 'fonts', 'MaterialIcons-Regular.ttf' ),
