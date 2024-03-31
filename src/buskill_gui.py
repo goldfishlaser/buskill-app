@@ -1255,7 +1255,9 @@ class BusKillApp(App):
 					font_path = str(os.path.join(root, file))
 					font_paths.add( font_path )
 
-	print( "font_paths:|" +str(font_paths)+ "|" )
+	# TODO: remove me
+	msg = "DEBUG: system_fonts_dirs:|" +str(len(LabelBase.get_system_fonts_dir()))+ " font files."
+	print( msg ); logger.debug( msg )
 
 	msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
 	print( msg ); logger.debug( msg )
@@ -1291,13 +1293,19 @@ class BusKillApp(App):
 		else:
 			# the user did *not* set a custom font; use Roboto
 
-			print( "attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|" )
+			# TODO: remove me
+			msg = "DEBUG: attempt to load bkmono from:|" +str(os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ))+ "|"
+			print( msg ); logger.debug( msg )
+
 			LabelBase.register(
 			 "bkmono",
 			 os.path.join( 'fonts', 'RobotoMono-Regular.ttf' ),
 			)
 
-		print( "attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|" )
+			# TODO: remove me
+		msg = "DEBUG: attempt to load mdicons from:|" +str(os.path.join( 'fonts', 'MaterialIcons-Regular.ttf'))+ "|"
+		print( msg ); logger.debug( msg )
+
 		LabelBase.register(
 		 "mdicons",
 		 os.path.join( 'fonts', 'MaterialIcons-Regular.ttf' ),
