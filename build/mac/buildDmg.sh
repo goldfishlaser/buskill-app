@@ -545,6 +545,10 @@ cp "../../KEYS" "${docsDir}/"
 # icon
 cp "buskill-icon.icns" "${APP_DIR_NAME}/.VolumeIcon.icns"
 
+# symlinks https://github.com/BusKill/buskill-app/issues/78#issuecomment-2028904907
+ln -s "../Resources/fonts" "${APP_DIR_NAME}/Contents/MacOS/fonts"
+ln -s "../Resources/images" "${APP_DIR_NAME}/Contents/MacOS/fonts"
+
 # change the timestamps of all the files in the appdir for reproducible builds
 find ${APP_DIR_NAME} -exec touch -h -d "@${SOURCE_DATE_EPOCH}" {} +
 
