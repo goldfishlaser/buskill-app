@@ -782,7 +782,7 @@ class BusKillSettingComplexOptions(BusKillSettingItem):
 				# first we must determine what fonts are available on this system
 
 				option_items = []
-				for font_path in BusKillApp.font_paths:
+				for font_path in BusKillApp.get_running_app().font_paths:
 					font_filename = os.path.basename( font_path )
 
 					font_human = font_filename
@@ -1260,7 +1260,7 @@ class BusKillApp(App):
 		# FONTS
 		font_dirs = LabelBase.get_system_fonts_dir()
 		font_dirs.append( self.bk.APP_DIR )
-		font_paths = set()
+		self.font_paths = set()
 		for fonts_dir_path in font_dirs:
 
 			for root, dirs, files in os.walk(fonts_dir_path):
@@ -1268,13 +1268,13 @@ class BusKillApp(App):
 					if file.lower().endswith(".ttf") \
 					 or file.lower().endswith(".otf"):
 						font_path = str(os.path.join(root, file))
-						font_paths.add( font_path )
+						self.font_paths.add( font_path )
 
 		# TODO: remove me
 		msg = "DEBUG: font_dirs:|" +str(font_dirs)+ "|"
 		print( msg ); logger.debug( msg )
 
-		msg = "DEBUG: Found " +str(len(font_paths))+ " font files."
+		msg = "DEBUG: Found " +str(len(self.font_paths))+ " font files."
 		print( msg ); logger.debug( msg )
 
 		msg = "DEBUG: Default font = " + str(Config.get('kivy', 'default_font'))
@@ -1333,8 +1333,8 @@ class BusKillApp(App):
 
 			try: 
 
-				font_roboto_mono_path = [f for f in font_paths if f.lower().endswith("robotomono-regular.ttf")]
-				font_mdicons_path = [f for f in font_paths if f.lower().endswith("materialicons-regular.ttf")]
+				font_roboto_mono_path = [f for f in self.font_paths if f.lower().endswith("robotomono-regular.ttf")]
+				font_mdicons_path = [f for f in self.font_paths if f.lower().endswith("materialicons-regular.ttf")]
 
 				msg = "DEBUG: Found Roboto Mono " + str(font_roboto_mono_path)
 				print( msg ); logger.debug( msg )
