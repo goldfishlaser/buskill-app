@@ -62,7 +62,7 @@ print_debugging_info () {
 	python --version
 	python -m pip list
 	ls -lah /tmp/kivy_appdir/opt/python*/bin/python*
-	ls -lah "/tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/"
+	ls -lah "/tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/"
 	/tmp/kivy_appdir/opt/python*/bin/python* --version
 	/tmp/kivy_appdir/opt/python*/bin/python* -m pip list
 	dpkg --list --no-pager || dpkg --list # fucking Ubuntu
@@ -231,7 +231,7 @@ rm -rf /tmp/squashfs4.4
 
 # We use this python-appimage release as a base for building our own python
 # AppImage. We only have to add our code and depends to it.
-#cp build/deps/python3.7.8-cp37-cp37m-manylinux2014_x86_64.AppImage /tmp/python.AppImage
+#cp build/deps/python3.12.8-cp37-cp37m-manylinux2014_x86_64.AppImage /tmp/python.AppImage
 cp build/deps/python3.12.2-cp312-cp312-manylinux2014_x86_64.AppImage /tmp/python.AppImage
 chmod +x /tmp/python.AppImage
 pushd /tmp
@@ -343,12 +343,12 @@ cp /usr/bin/gpg /tmp/kivy_appdir/opt/src/
 
 # replace kivy icons with our icons since kivy has a bug with icons in linux
 #  * https://github.com/kivy/kivy/issues/2202
-cp src/images/buskill-icon-128.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-128.png
-cp src/images/buskill-icon-64.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-64.png
-cp src/images/buskill-icon-48.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-48.png
-cp src/images/buskill-icon-32.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-32.png
-cp src/images/buskill-icon-24.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-25.png
-cp src/images/buskill-icon-16.png /tmp/kivy_appdir/opt/python3.7/lib/python3.7/site-packages/kivy/data/logo/kivy-icon-16.png
+cp src/images/buskill-icon-128.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-128.png
+cp src/images/buskill-icon-64.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-64.png
+cp src/images/buskill-icon-48.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-48.png
+cp src/images/buskill-icon-32.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-32.png
+cp src/images/buskill-icon-24.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-25.png
+cp src/images/buskill-icon-16.png /tmp/kivy_appdir/opt/python3.12/lib/python3.12/site-packages/kivy/data/logo/kivy-icon-16.png
 
 # output information about this build so the code can use it later in logs
 cat > /tmp/kivy_appdir/opt/src/buskill_version.py <<EOF
@@ -383,14 +383,14 @@ do
     if [[ "${opt}" =~ "I" ]] || [[ "${opt}" =~ "E" ]]; then
         # Environment variables are disabled ($PYTHONHOME). Let's run in a safe
         # mode from the raw Python binary inside the AppImage
-        "$APPDIR/opt/python3.7/bin/python3.7 $APPDIR/opt/src/main.py" "$@"
+        "$APPDIR/opt/python3.12/bin/python3.12 $APPDIR/opt/src/main.py" "$@"
         exit "$?"
     fi
 done
 
 # Get the executable name, i.e. the AppImage or the python binary if running from an
 # extracted image
-executable="${APPDIR}/opt/python3.7/bin/python3.7 ${APPDIR}/opt/src/main.py"
+executable="${APPDIR}/opt/python3.12/bin/python3.12 ${APPDIR}/opt/src/main.py"
 if [[ "${ARGV0}" =~ "/" ]]; then
     executable="$(cd $(dirname ${ARGV0}) && pwd)/$(basename ${ARGV0})"
 elif [[ "${ARGV0}" != "" ]]; then
@@ -400,7 +400,7 @@ fi
 # Wrap the call to Python in order to mimic a call from the source
 # executable ($ARGV0), but potentially located outside of the Python
 # install ($PYTHONHOME)
-(PYTHONHOME="${APPDIR}/opt/python3.7" exec -a "${executable}" "$APPDIR/opt/python3.7/bin/python3.7" "$APPDIR/opt/src/main.py" "$@")
+(PYTHONHOME="${APPDIR}/opt/python3.12" exec -a "${executable}" "$APPDIR/opt/python3.12/bin/python3.12" "$APPDIR/opt/src/main.py" "$@")
 exit "$?"
 EOF
 
