@@ -643,14 +643,14 @@ class BusKill:
 					# this execution was a binary
 
 					# let's call the root child binary
-					root_child_path = self.SRC_DIR +os.sep+ 'root_child_mac'
+					root_child_path = self.EXE_DIR +os.sep+ 'root_child_mac'
 
 					# and we'll be calling the binary directly
 					exe = [root_child_path, self.LOG_FILE_PATH]
 
 				else:
 					# this execution was a script; let's call the root child script
-					root_child_path = self.SRC_DIR +os.sep+ 'packages' +os.sep+ 'buskill' +os.sep+ 'root_child_mac.py'
+					root_child_path = self.EXE_DIR +os.sep+ 'packages' +os.sep+ 'buskill' +os.sep+ 'root_child_mac.py'
 
 					# and we'll pass the script as an argument to the python
 					# interpreter
