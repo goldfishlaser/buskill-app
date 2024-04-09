@@ -573,6 +573,7 @@ Rez -append ../icns.rsrc -o ./${DMG_FILENAME}
 SetFile -c icnC "${DMG_FILENAME}/.VolumeIcon.icns"
 SetFile -a C ./${DMG_FILENAME}
 
+ls -lah
 popd
 
 #####################
@@ -582,6 +583,7 @@ popd
 # create the dist dir for our result to be uploaded as an artifact
 mkdir -p ../dist
 cp "dist/${DMG_FILENAME}" ../dist/
+ls -lah ../dist/
 
 #######################
 # OUTPUT VERSION INFO #
