@@ -181,19 +181,22 @@ cat "${tmpDir}/buskill-app-deps/build/deps/SHA256SUMS" | while read line; do
 	cp ${file_path} build/deps/
 done
 
-${BREW} uninstall --debug --verbose --ignore-dependencies python
+#${BREW} uninstall --debug --verbose --ignore-dependencies python
 if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
 	#${BREW} reinstall --debug --verbose build/deps/python-3.7.8.catalina.bottle.tar.gz
-	${BREW} reinstall --debug --verbose build/deps/python-3.11.catalina.bottle.tar.gz
+	#${BREW} reinstall --debug --verbose build/deps/python-3.11.catalina.bottle.tar.gz
+	sudo installer -pkg python-3.11.8-macos11.pkg -target /
 else
-	${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
+	#${BREW} reinstall --debug --verbose build/deps/python-3.12.ventura.bottle.tar.gz
+	sudo installer -pkg python-3.12.2-macos11.pkg -target /
 fi
+PYTHON_PATH="/usr/local/bin/python3"
 
-if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
-	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.11 | sort -n | uniq | head -n1`"
-else
-	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
-fi
+#if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
+#	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.11 | sort -n | uniq | head -n1`"
+#else
+#	PYTHON_PATH="`find /usr/local/Cellar/python* -type f -wholename *bin/python3.12 | sort -n | uniq | head -n1`"
+#fi
 
 # install os-level depends
 if [[ "${MACOS_MAJOR_VERSION}" -eq 10 ]]; then
