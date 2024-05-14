@@ -56,6 +56,7 @@ The reader may be interested to investigate the following similar projects:
  * `Centry <https://github.com/0xPoly/Centry>`_
  * `PanicKit <https://guardianproject.info/code/panickit/>`_ & `Ripple <https://guardianproject.info/apps/info.guardianproject.ripple/>`_
  * `Duress <https://github.com/x13a/Duress>`_
+ * `Wasted <https://github.com/x13a/Wasted>`_
  * `xxUSBSentinel <https://github.com/thereisnotime/xxUSBSentinel>`_
  * `lockup <https://github.com/levlesec/lockup>`_
  * `pam_duress <https://github.com/rafket/pam_duress>`_
