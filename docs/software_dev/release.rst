@@ -274,7 +274,7 @@ After verifying the reproducibility of the Linux build, download the Windows and
 	user@vault:~$ sha256sum * > SHA256SUMS
 	user@vault:~$
 
-	user@vault:~$ gpg --default-key 'E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A' --armor -b SHA256SUMS
+	user@vault:~$ gpg --default-key 'E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A' --textmode --armor -b SHA256SUMS
 	gpg: using "E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A" as default secret key for signing
 	user@vault:~$
 
@@ -360,7 +360,7 @@ After updating the ``meta.json`` file, copy it to your airgapped machine and sig
 
 ::
 
-	user@vault:~$ gpg --default-key 'E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A' --armor -b meta.json
+	user@vault:~$ gpg --default-key 'E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A' --textmode --armor -b meta.json
 	gpg: using "E0AF FF57 DC00 FBE0 5635  8761 4AE2 1E19 36CE 786A" as default secret key for signing
 	user@vault:~$
 
