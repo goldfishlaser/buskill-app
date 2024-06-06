@@ -128,43 +128,16 @@ ls "${tmpDir}\gnupg" | Out-String
 # confirm that the signature is valid. `gpgv` would exit 2 if the signature
 # isn't in our keyring (so we are effectively pinning it), it exits 1 if there's
 # any BAD signatures, and exits 0 "if everything is fine"
-#gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
-cat "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" | Out-String
-cat "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
-Get-FileHash "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" | Out-String
-Get-FileHash "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
-Format-Hex "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" | Out-String
-Format-Hex "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 
 dir "${tmpDir}"
 dir "${tmpDir}\gnupg"
 dir "${tmpDir}\buskill-app-deps\build\deps"
 
-#gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
-gpg --list-keys | Out-String
-gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
-gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
-gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.gpg" --list-keys | Out-String
-gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "${tmpDir}\gnupg\pubring.kbx" --list-keys | Out-String
 gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" --list-keys | Out-String
 gpg  --with-fingerprint  --with-subkey-fingerprint --keyid-format 0xlong  --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" --list-keys | Out-String
 
-gpgv --keyring "${tmpDir}\gnupg\pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --keyring "${tmpDir}\gnupg\pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --homedir "${tmpDir}\gnupg\" --keyring "${tmpDir}\gnupg\pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --homedir "${tmpDir}\gnupg\" --keyring "${tmpDir}\gnupg\pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --homedir "${tmpDir}/gnupg" --keyring "${tmpDir}/gnupg/pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --homedir "${tmpDir}/gnupg" --keyring "${tmpDir}/gnupg/pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
+#gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
-gpg --homedir "${tmpDir}\gnupg" --keyring "pubring.gpg" --verify "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-gpg --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" --verify "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
-
 if ( $? -ne $true -or $LastExitCode -ne 0 ){
 	echo "ERROR: Invalid PGP signature!" | Out-String
 	exit 1 | Out-String
