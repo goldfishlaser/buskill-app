@@ -122,6 +122,9 @@ cat "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 Get-FileHash "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" | Out-String
 Get-FileHash "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
 
+Format-Hex "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" | Out-String
+Format-Hex "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
+
 dir "${tmpDir}"
 dir "${tmpDir}\gnupg"
 dir "${tmpDir}\buskill-app-deps\build\deps"
