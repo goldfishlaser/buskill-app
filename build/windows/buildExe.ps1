@@ -145,6 +145,9 @@ if ( $? -ne $true -or $LastExitCode -ne 0 ){
 
 pushd "${tmpDir}/buskill-app-deps/build/deps"
 
+# show the contents of the "deps" dir before the copies
+dir "$REPO_PATH\build\deps\"
+
 # confirm that the checksums of all the files match what's expected in the
 # the signed SHA256SUSM file.
 Get-Content -Path SHA256SUMS |
@@ -153,11 +156,14 @@ Get-Content -Path SHA256SUMS |
 		[PSCustomObject]@{Path=$File;
 		Result=if ((Get-FileHash -Path $File -Algorithm SHA256).Hash -eq $Hash) {
 			# this file's hash matches our signed digest; copy it to our repo dir
-			cp "$REPO_PATH\build\deps\"
+			cp "$File" "$REPO_PATH\build\deps\"
 		} else {
 			"FAILED"
 		}
 	}}} | Format-List | Out-String
+
+# show the contents of the "deps" dir after the copies
+dir "$REPO_PATH\build\deps\"
 
 # See https://docs.python.org/3.7/using/windows.html#installing-without-ui
 Write-Output 'INFO: Installing python'
