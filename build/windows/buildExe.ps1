@@ -82,11 +82,25 @@ Get-ChildItem -Path C:\ -Force | Out-String
 Write-Output "listing contents of cwd"
 Get-ChildItem -Force | Out-String
 
-# TODO: delete these
-# try to find the gpgv binary
-Get-Command gpgv
-Get-Command gpgv.exe
-#Get-ChildItem -Filter "*msys-bz2-1.dll" -Recurse C:\ | Out-String
+Write-Output 'INFO: Dir contents'
+Get-ChildItem -Path "pyinstaller" -Force | Out-String
+Get-ChildItem -Path "pyinstaller\dist" -Force | Out-String
+Get-ChildItem -Path "dist" -Force | Out-String
+
+Write-Output 'INFO: Python versions info'
+
+# before exiting, output the versions of software installed
+C:\tmp\kivy_venv\Scripts\python.exe --version | Out-String
+C:\tmp\kivy_venv\Scripts\python.exe -m pip list | Out-String
+
+Write-Output 'INFO: gpg versions info'
+Get-Command gpgv | Out-String
+Get-Command gpgv.exe | Out-String
+gpg --version | Out-String
+gpgv --version | Out-String
+
+# print all environment variables
+Get-ChildItem env:
 
 Write-Output 'INFO: Beginning execution'
 
@@ -393,26 +407,6 @@ cd ..
 ls
 
 Compress-Archive -DestinationPath "$env:ARCHIVE_DIR.zip" -Path "$env:ARCHIVE_DIR" | Out-String
-
-#######################
-# OUTPUT VERSION INFO #
-#######################
-
-Write-Output 'INFO: Dir contents'
-Get-ChildItem -Path "pyinstaller" -Force | Out-String
-Get-ChildItem -Path "pyinstaller\dist" -Force | Out-String
-Get-ChildItem -Path "dist" -Force | Out-String
-
-Write-Output 'INFO: Python versions info'
-
-# before exiting, output the versions of software installed
-C:\tmp\kivy_venv\Scripts\python.exe --version | Out-String
-C:\tmp\kivy_venv\Scripts\python.exe -m pip list | Out-String
-gpg --version | Out-String
-gpgv --version | Out-String
-
-# print all environment variables
-Get-ChildItem env:
 
 ##################
 # CLEANUP & EXIT #
