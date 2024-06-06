@@ -115,6 +115,7 @@ ls "${tmpDir}\gnupg" | Out-String
 # isn't in our keyring (so we are effectively pinning it), it exits 1 if there's
 # any BAD signatures, and exits 0 "if everything is fine"
 #gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS.asc" "${tmpDir}\buskill-app-deps\build\deps\SHA256SUMS" | Out-String
+gpgv --homedir "${tmpDir}\gnupg" --keyring "pubring.kbx" "build\deps\SHA256SUMS.asc" "build\deps\SHA256SUMS" | Out-String
 
 dir "${tmpDir}"
 dir "${tmpDir}\gnupg"
