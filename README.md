@@ -14,11 +14,11 @@ The quickest way to understand BusKill is to watch our 2-minute [BusKill Explain
 |:--:| 
 | *Watch the <a href="https://www.buskill.in/#demo">BusKill Explainer Video</a> for more info <a href="https://www.youtube.com/v/qPwyoD_cQR4">youtube.com/v/qPwyoD_cQR4</a>* |
 
-You can also [see BusKill in action](https://www.buskill.in/demo-2) on Windows, MacOS, Linux, and QubesOS.
+You can also [see BusKill in action](https://www.buskill.in/demo) on Windows, MacOS, Linux, and QubesOS.
 
-| <p align="center"><a href="https://www.buskill.in/demo-2"><img src="docs/images/buskill_demo.gif?raw=true" alt="BusKill Demo Video" /></a></p> |
+| <p align="center"><a href="https://www.buskill.in/demo"><img src="docs/images/buskill_demo.gif?raw=true" alt="BusKill Demo Video" /></a></p> |
 |:--:| 
-| *Watch the <a href="https://www.buskill.in/demo-2">BusKill Demo Video</a> to see the cable being used on Windows, MacOS, Linux, and QubesOS <a href="https://www.buskill.in/demo-2">buskill.in/demo-2</a>* |
+| *Watch the <a href="https://www.buskill.in/demo">BusKill Demo Video</a> to see the cable being used on Windows, MacOS, Linux, and QubesOS <a href="https://www.buskill.in/demo">buskill.in/demo</a>* |
 
 For more information on how to [buy](https://www.buskill.in/buy) or build your own BusKill cable, see the [BusKill Website](https://www.buskill.in):
 
