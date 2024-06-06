@@ -164,6 +164,7 @@ Get-Content -Path SHA256SUMS |
 
 # show the contents of the "deps" dir after the copies
 dir "$REPO_PATH\build\deps\"
+popd
 
 # See https://docs.python.org/3.7/using/windows.html#installing-without-ui
 Write-Output 'INFO: Installing python'
