@@ -11,8 +11,8 @@ Set-PSDebug -Trace 1
 #
 # Authors: Michael Altfield <michael@buskill.in>
 # Created: 2020-05-31
-# Updated: 2024-03-27
-# Version: 0.5
+# Updated: 2024-06-06
+# Version: 0.6
 ################################################################################
 
 ######################################
