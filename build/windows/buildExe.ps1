@@ -408,6 +408,8 @@ Write-Output 'INFO: Python versions info'
 # before exiting, output the versions of software installed
 C:\tmp\kivy_venv\Scripts\python.exe --version | Out-String
 C:\tmp\kivy_venv\Scripts\python.exe -m pip list | Out-String
+gpg --version | Out-String
+gpgv --version | Out-String
 
 # print all environment variables
 Get-ChildItem env:
