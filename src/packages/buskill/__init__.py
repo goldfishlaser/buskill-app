@@ -19,7 +19,7 @@ For more info, see: https://buskill.in/
 ################################################################################
 
 import platform, multiprocessing, traceback, subprocess
-import urllib.request, re, json, certifi, sys, os, grp, pwd, math, shutil, tempfile, random, gnupg, configparser
+import urllib.request, re, json, certifi, sys, os, pwd, math, shutil, tempfile, random, gnupg, configparser
 import os.path
 from buskill_version import BUSKILL_VERSION
 from packaging.version import Version
@@ -31,7 +31,7 @@ logger = logging.getLogger( __name__ )
 # platform-specific modules
 CURRENT_PLATFORM = platform.system().upper()
 if CURRENT_PLATFORM.startswith( 'LINUX' ):
-	import usb1
+	import usb1, grp
 	msg = "usb1.__version__:|" +str(usb1.__version__)+ "|"
 	print( msg ); logger.debug( msg )
 
@@ -40,7 +40,7 @@ if CURRENT_PLATFORM.startswith( 'WIN' ):
 	from ctypes import *
 	
 if CURRENT_PLATFORM.startswith( 'DARWIN' ):
-	import usb1, ctypes, ctypes.util
+	import usb1, ctypes, ctypes.util, grp
 	from ctypes import byref
 	msg = "usb1.__version__:|" +str(usb1.__version__)+ "|"
 	print( msg ); logger.debug( msg )
@@ -677,8 +677,9 @@ class BusKill:
 				msg = "DEBUG: root_child gid owner:|" +str(group)+ "|"
 				print( msg ); logger.debug( msg )
 
-				msg = "DEBUG: root_child group owner name:|" +str(grp.getgrgid(group))+ "|"
-				print( msg ); logger.debug( msg )
+				if grp:
+					msg = "DEBUG: root_child group owner name:|" +str(grp.getgrgid(group))+ "|"
+					print( msg ); logger.debug( msg )
 
 				# verify the mode of the file is exactly 0500 (octal)
 				if mode != '0500':
