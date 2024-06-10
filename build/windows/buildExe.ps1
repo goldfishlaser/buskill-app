@@ -189,7 +189,7 @@ C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade 
 C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\kivy_deps.sdl2-0.7.0-cp312-cp312-win_amd64.whl | Out-String
 C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\kivy_deps.glew-0.3.1-cp312-cp312-win_amd64.whl | Out-String
 C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\kivy_deps.angle-0.4.0-cp312-cp312-win_amd64.whl | Out-String
-C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\PyInstaller-3.6.tar.gz | Out-String
+C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\pyinstaller-6.5.0-py3-none-win_amd64.whl | Out-String
 
 # install kivy and all other python dependencies with pip into our virtual env
 C:\tmp\kivy_venv\Scripts\python.exe -m pip install --ignore-installed --upgrade --cache-dir .\build\deps\ --no-index --find-links .\build\deps\ .\build\deps\Kivy-2.3.0-cp312-cp312-win_amd64.whl | Out-String
