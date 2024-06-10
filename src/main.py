@@ -19,7 +19,7 @@ For more info, see: https://buskill.in/
 
 # this is needed for supporting Windows 10 with OpenGL < v2.0
 # Example: VirtualBox w/ OpenGL v1.1
-import platform, os, grp
+import platform, os
 CURRENT_PLATFORM = platform.system().upper()
 if CURRENT_PLATFORM.startswith( 'WIN' ):
     os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
