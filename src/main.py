@@ -24,6 +24,10 @@ CURRENT_PLATFORM = platform.system().upper()
 if CURRENT_PLATFORM.startswith( 'WIN' ):
     os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
+# grp is only available on *nix systems
+if CURRENT_PLATFORM.startswith( 'LINUX' ) or CURRENT_PLATFORM.startswith( 'DARWIN' ):
+	import grp
+
 ################################################################################
 #                                   IMPORTS                                    #
 ################################################################################
@@ -68,7 +72,8 @@ if __name__ == '__main__':
 	logging.debug( 'os.environ|' +str(os.environ)+ '|' )
 	logging.debug( 'user|' +str(os.getlogin())+ '|' )
 	logging.debug( 'uid|' +str(os.getuid())+ '|' )
-	logging.debug( 'group|' +str(grp.getgrgid( os.getgid() ))+ '|' )
+	if grp:
+		logging.debug( 'group|' +str(grp.getgrgid( os.getgid() ))+ '|' )
 	logging.debug( 'gid|' +str(os.getgid())+ '|' )
 	logging.debug( 'sys.argv|' +str(sys.argv)+ '|' )
 	logging.debug( 'sys.builtin_modules_names|' +str(sys.builtin_module_names)+ '|' )
