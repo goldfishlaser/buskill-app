@@ -19,7 +19,7 @@ For more info, see: https://buskill.in/
 ################################################################################
 
 import platform, multiprocessing, traceback, subprocess
-import urllib.request, re, json, certifi, sys, os, pwd, math, shutil, tempfile, random, gnupg, configparser
+import urllib.request, re, json, certifi, sys, os, math, shutil, tempfile, random, gnupg, configparser
 import os.path
 from buskill_version import BUSKILL_VERSION
 from packaging.version import Version
@@ -31,7 +31,7 @@ logger = logging.getLogger( __name__ )
 # platform-specific modules
 CURRENT_PLATFORM = platform.system().upper()
 if CURRENT_PLATFORM.startswith( 'LINUX' ):
-	import usb1, grp
+	import usb1, grp, pwd
 	msg = "usb1.__version__:|" +str(usb1.__version__)+ "|"
 	print( msg ); logger.debug( msg )
 
@@ -40,7 +40,7 @@ if CURRENT_PLATFORM.startswith( 'WIN' ):
 	from ctypes import *
 	
 if CURRENT_PLATFORM.startswith( 'DARWIN' ):
-	import usb1, ctypes, ctypes.util, grp
+	import usb1, ctypes, ctypes.util, grp, pwd
 	from ctypes import byref
 	msg = "usb1.__version__:|" +str(usb1.__version__)+ "|"
 	print( msg ); logger.debug( msg )
@@ -671,8 +671,9 @@ class BusKill:
 				msg = "DEBUG: root_child uid owner:|" +str(owner)+ "|"
 				print( msg ); logger.debug( msg )
 
-				msg = "DEBUG: root_child user owner name:|" +str(pwd.getpwuid(owner))+ "|"
-				print( msg ); logger.debug( msg )
+				if pwd:
+					msg = "DEBUG: root_child user owner name:|" +str(pwd.getpwuid(owner))+ "|"
+					print( msg ); logger.debug( msg )
 
 				msg = "DEBUG: root_child gid owner:|" +str(group)+ "|"
 				print( msg ); logger.debug( msg )
