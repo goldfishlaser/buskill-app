@@ -71,10 +71,6 @@ if __name__ == '__main__':
 	logging.debug( 'BUSKILL_VERSION|' +str(BUSKILL_VERSION)+ '|' )
 	logging.debug( 'os.environ|' +str(os.environ)+ '|' )
 	logging.debug( 'user|' +str(os.getlogin())+ '|' )
-	logging.debug( 'uid|' +str(os.getuid())+ '|' )
-	if grp:
-		logging.debug( 'group|' +str(grp.getgrgid( os.getgid() ))+ '|' )
-	logging.debug( 'gid|' +str(os.getgid())+ '|' )
 	logging.debug( 'sys.argv|' +str(sys.argv)+ '|' )
 	logging.debug( 'sys.builtin_modules_names|' +str(sys.builtin_module_names)+ '|' )
 	logging.debug( 'sys.executable|' +str(sys.executable)+ '|' )
@@ -95,6 +91,7 @@ if __name__ == '__main__':
 
 	# what platform are they running?
 	CURRENT_PLATFORM = platform.system().upper()
+
 	if CURRENT_PLATFORM.startswith( 'LINUX' ):
 		# they're running linux; what distro and version of linux?
 		try:
@@ -117,6 +114,12 @@ if __name__ == '__main__':
 			logging.debug( 'platform.mac_ver()|' +str(platform.mac_ver())+ '|' )
 		except Exception:
 			pass
+
+	if CURRENT_PLATFORM.startswith( 'LINUX' ) or CURRENT_PLATFORM.startswith( 'DARWIN' ):
+		# they're running *nix; output some *nix-specific user/group info
+		logging.debug( 'uid|' +str(os.getuid())+ '|' )
+		logging.debug( 'group|' +str(grp.getgrgid( os.getgid() ))+ '|' )
+		logging.debug( 'gid|' +str(os.getgid())+ '|' )
 
 	###########
 	# PREREQS #
