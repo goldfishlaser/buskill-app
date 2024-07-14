@@ -10,6 +10,7 @@ Thank you to the following folks who have contributed to the BusKill project!
  * `Jacob Neplokh <https://jacobneplokh.com/>`_
  * `Melanie Allen <https://github.com/goldfishlaser>`_
  * `François Marier <https://fmarier.org/>`_
+ * `samxplogs <https://www.youtube.com/@samxplogs>`_
 
 This project would not have been possible without the following tools and services:
  * `Python <https://www.python.org/>`_
