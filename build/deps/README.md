@@ -1,9 +1,12 @@
-This dir holds all the files needed to build this app on all platforms. We store these files in the repo instead of downloading them at build-time because the tools used to download them do not provide secure authentication and integrity checks.
+This dir holds files needed to verify the authenticity of downloads of dependencies for the BusKill app.
+
+We used to store the dependencies here directly, but that caused this repo to balloon in-size, so we instead moved the actual dependencies to another repo ([buskill-app-deps](https://github.com/BusKill/buskill-app-deps)), separated from the code.
+
+ * https://github.com/BusKill/buskill-app-deps
 
 For more info, see:
 
  * https://github.com/BusKill/buskill-app/issues/2
+ * https://github.com/BusKill/buskill-app/issues/24
 
-There's a `SHA256SUMS` file in this directory that contains the sha256 hashes of the files in this directory.
-
-You should also be able to use the `download.sh` script in this directory to re-download the assets.
+Note: all dependencies that are not cryptographically signed by upstream projects will be 3TOFU'd before being added to our repos, at which point we generate a new [SHA256SUMS](https://github.com/BusKill/buskill-app-deps/blob/main/build/deps/SHA256SUMS) checksum file and a signature of the checksum file in [SHA256SUMS.asc](https://github.com/BusKill/buskill-app-deps/blob/main/build/deps/SHA256SUMS.asc). This is the best way to ensure the authenticity of all our dependencies at download-time and at future-build-time.
