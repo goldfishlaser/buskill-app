@@ -147,7 +147,7 @@ tmpDir="`mktemp -d`" || exit 1
 pushd "${tmpDir}"
 # (temporarily) re-enable internet access
 export all_proxy=''
-git clone https://github.com/BusKill/buskill-app-deps.git
+git clone --no-tags --depth 1 https://github.com/BusKill/buskill-app-deps.git
 export all_proxy='http://example.com:9999'
 
 mkdir gnupg
