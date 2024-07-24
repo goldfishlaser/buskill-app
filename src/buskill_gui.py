@@ -1101,7 +1101,8 @@ class BusKillSettingsScreen(Screen):
 				# TODO: add logic to determine if set_trigger() failed (eg if we were
 				# unable to launch a root_child process) and: raise GUI error message
 				# && reset back to the previous trigger
-				msg = "e:|" +str(e)+ "|"
+				msg = "Unable to set trigger to '" +str(new_trigger)+ "'"
+				msg += "\n\n" +str(e)
 				print( msg )
 				self.dialog = DialogConfirmation(
 				 title = '[font=mdicons][size=30]\ue002[/size][/font] Error',
@@ -1111,6 +1112,10 @@ class BusKillSettingsScreen(Screen):
 				)
 				self.dialog.b_cancel.text = "OK"
 				self.dialog.open()
+
+				# revert back to the trigger before
+				Config.set('buskill', 'buskill_trigger', old_trigger)
+				self.bk.set_trigger(old_trigger)
 
 				return False
 
