@@ -628,7 +628,7 @@ class BusKill:
 				msg = "DEBUG: No root_child detected. Attempting to spawn one."
 				print( msg ); logger.debug( msg )
 
-				msg = "INFO: You have requested BusKill to do something that requires elevated privliges on your platform. If you'd like to proceed, please authorize BusKill to preform actions as Administrator. Your system may prompt you for your password to proceed."
+				msg = "INFO: You have requested BusKill to do something that requires elevated privileges on your platform. If you'd like to proceed, please authorize BusKill to preform actions as Administrator. Your system may prompt you for your password to proceed."
 				print( msg ); logger.info( msg )
 
 				# To spawn a child process as root in MacOS, we use
@@ -686,9 +686,10 @@ class BusKill:
 				if mode != '0500':
 					msg = 'ERROR: Permissions on root_child are not 0500. Refusing to spawn script as root!'
 					print( msg ); logger.error( msg )
+					raise PermissionError( msg )
 					return False
 
-				# unfortunaetly we can't package a .dmg with a file owned by root, so on
+				# unfortunately we can't package a .dmg with a file owned by root, so on
 				# first run, we expect that the root child script will be owned by the
 				# user that executed the BusKill app
 				# https://github.com/BusKill/buskill-app/issues/14#issuecomment-1279975783
@@ -697,18 +698,21 @@ class BusKill:
 				if owner != 0 and owner != os.getuid():
 					msg = 'ERROR: root_child is not owned by root nor your user. Refusing to spawn script as root!'
 					print( msg ); logger.error( msg )
+					raise PermissionError( msg )
 					return False
 
 				# verify the file is owned by group = root (or current group)
 				if group != 0 and group != 80 and group != os.getgid():
 					msg = 'ERROR: root_child is not owned by gid=0, admin, nor your group. Refusing to spawn script as root!'
 					print( msg ); logger.error( msg )
+					raise PermissionError( msg )
 					return False
 
 				# verify the "file" isn't actually a symlink
 				if os.path.islink( root_child_path ):
 					msg = 'ERROR: root_child is a link. Refusing to spawn script as root!'
 					print( msg ); logger.error( msg )
+					raise OSError( msg )
 					return False
 
 				# import some C libraries for interacting via ctypes with the MacOS API
@@ -750,18 +754,21 @@ class BusKill:
 					# https://developer.apple.com/documentation/security/1540004-authorization_services_result_co/errauthorizationinteractionnotallowed
 					msg = 'ERROR: root_child spwan attempt returned errAuthorizationInteractionNotAllowed = -60007. Did you execute BusKill from a headless CLI? The credential challenge requires a GUI when launching a child process as root.'
 					print( msg ); logger.error( msg )
+					raise OSError( msg )
 					return False
 
 				elif err == -60031:
 					# https://developer.apple.com/documentation/security/1540004-authorization_services_result_co/errauthorizationtoolexecutefailure
 					msg = 'ERROR: root_child spwan attempt returned errAuthorizationToolExecuteFailure = -60031. Is the root child binary executable? Check permissions.'
 					print( msg ); logger.error( msg )
+					raise OSError( msg )
 					return False
 
 				elif err != 0:
 					# catch all other errors
 					msg = 'ERROR: root_child spawn attempt returned ' +str(err)+ '. Please see reference documentation for Apple Authorization Services Result Codes @ https://developer.apple.com/documentation/security/1540004-authorization_services_result_co'
 					print( msg ); logger.error( msg )
+					raise OSError( msg )
 					return False
 
 				msg = "DEBUG: Root child spawned successfully!"

@@ -1083,7 +1083,7 @@ class BusKillSettingsScreen(Screen):
 	# user expects it to trigger)
 	def rearm_if_required(self):
 
-		# this changes to true if we have to disarm & arm BusKill again i norder to
+		# this changes to true if we have to disarm & arm BusKill again in order to
 		# apply the settings that the user changed
 		rearm_required = False
 
@@ -1093,8 +1093,26 @@ class BusKillSettingsScreen(Screen):
 
 		# was the trigger just changed by the user?
 		if old_trigger != new_trigger:
-			# the trigger was changed; update the runtime bk instance
-			self.bk.set_trigger( new_trigger )
+			try: 
+				# the trigger was changed; update the runtime bk instance
+				self.bk.set_trigger( new_trigger )
+			except Exception as e:
+
+				# TODO: add logic to determine if set_trigger() failed (eg if we were
+				# unable to launch a root_child process) and: raise GUI error message
+				# && reset back to the previous trigger
+				msg = "e:|" +str(e)+ "|"
+				print( msg )
+				self.dialog = DialogConfirmation(
+				 title = '[font=mdicons][size=30]\ue002[/size][/font] Error',
+				 body = msg,
+				 button='',
+				 continue_function = None
+				)
+				self.dialog.b_cancel.text = "OK"
+				self.dialog.open()
+
+				return False
 
 			# is BusKill currently armed?
 			if self.bk.is_armed == True:
