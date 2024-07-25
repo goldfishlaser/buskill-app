@@ -53,7 +53,7 @@ ${WGET} `${CURL} -s https://pypi.org/simple/kivy-deps-sdl2/ | grep -oE 'https://
 ${WGET} `${CURL} -s https://pypi.org/simple/kivy-deps-glew/ | grep -oE 'https://.*kivy_deps.glew-0.3.1-cp312-cp312-win_amd64.whl#'`
 ${WGET} `${CURL} -s https://pypi.org/simple/kivy-deps-angle/ | grep -oE 'https://.*kivy_deps.angle-0.4.0-cp312-cp312-win_amd64.whl#'`
 
-# TODO: also update setuptools, wheel, requests, chardet, and idna (kivy deps)
+# TODO: also update setuptools, wheel, requests, chardet, idna, and urllib3 (kivy deps)
 
 # misc linux
 ${WGET} https://github.com/niess/python-appimage/releases/download/python3.12/python3.12.2-cp312-cp312-manylinux2014_x86_64.AppImage
