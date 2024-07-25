@@ -249,8 +249,8 @@ ${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/dep
 #find /usr/local/Cellar/python/ -type f -wholename *bin/python3*
 #find /usr/local/Cellar/python/ -type f -wholename *bin/pip3*
 
-${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-49.1.0-py3-none-any.whl
-${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/wheel-0.34.2-py2.py3-none-any.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/setuptools-69.1.1-py3-none-any.whl
+${PYTHON_PATH} -m pip install --ignore-installed --upgrade --cache-dir build/deps/ --no-index --find-links file://`pwd`/build/deps/ build/deps/wheel-0.42.0-py3-none-any.whl
 
 # get more info post-python install
 #ls -lah /usr/local/Cellar/python/
