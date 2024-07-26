@@ -164,7 +164,26 @@ class MainWindow(Screen):
 
 	def toggle_buskill(self):
 
-		self.bk.toggle()
+		try:
+			# attempt to tell the buskill object to arm/disarm
+			self.bk.toggle()
+
+		except Exception as e:
+			# buskill failed to arm/disarm; tell the user
+			
+			msg = "Unable to toggle buskill state"
+			msg += "\n\n" +str(e)
+			print( msg )
+			self.dialog = DialogConfirmation(
+			 title = '[font=mdicons][size=30]\ue002[/size][/font] Error',
+			 body = msg,
+			 button='',
+			 continue_function = None
+			)
+			self.dialog.b_cancel.text = "OK"
+			self.dialog.open()
+
+			return False
 
 		if self.bk.is_armed:
 			self.toggle_btn.text = 'Disarm'

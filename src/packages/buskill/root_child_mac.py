@@ -151,12 +151,12 @@ while True:
 	msg = "Waiting for command"
 	logging.info(msg)
 
-	# block until we recieve a command (ending with a newline) from stdin
+	# block until we receive a command (ending with a newline) from stdin
 	command = sys.stdin.buffer.readline().strip().decode('ascii')
 	msg = "Command received"
 	logging.info(msg)
 
-	# check sanity of recieved command. Be very suspicious
+	# check sanity of received command. Be very suspicious
 	if not re.match( "^[A-Za-z_-]+$", command ):
 		msg = "Bad Command Ignored\n"
 
@@ -182,6 +182,14 @@ while True:
 		except Exception as e:
 			msg = "Failed to execute trigger_softshutdown_mac()\n" +str(e)
 			logging.error(msg)
+
+	elif command == "ping":
+		# they just want to check to see if we're still alive; respond with pong
+		msg = "Command is 'ping'"
+		logging.debug(msg)
+
+		msg = "pong\n"
+		logging.info(msg)
 
 	else:   
 		# I have no idea what they want; tell them we ignored the request

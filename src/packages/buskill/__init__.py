@@ -970,6 +970,37 @@ class BusKill:
 			msg = "DEBUG: attempting to arm BusKill via " +str(self.ARM_FUNCTION)+ "() with the '" +str(self.trigger)+ "' trigger"
 			print( msg ); logger.debug( msg )
 
+			# does this trigger require a root_child process?
+			if trigger == 'soft-shutdown' and self.OS_NAME_SHORT == 'mac':
+				# we cannot arm without a root_child running; ping it and make sure
+				# the root_child process is alive. otherwise, we'll give the user a
+				# false-sense of security, and that would be very bad
+
+				# try to send the 'ping' command to the root child process
+				msg = "DEBUG: Attempting to send 'ping' command to root child"
+				print( msg ); logger.debug( msg )
+
+				libc = ctypes.cdll.LoadLibrary(ctypes.util.find_library("c"))
+
+				# https://github.com/BusKill/buskill-app/issues/14#issuecomment-1280026743
+				command = "ping\n".encode(encoding="ascii")
+				libc.fwrite( command,1,len(command),self.root_child['io'] )
+				libc.fflush( self.root_child['io'] )
+				result = str( self.read_from_root_child_mac() )
+
+				msg = "DEBUG: Response from root-child:|" +str(result)+ "|"
+				print( msg ); logger.debug( msg )
+
+				# did the root child process respond with a "pong" message?
+				if result != "pong":
+					# we didn't get a response from the root-child; don't arm
+
+					msg = "ERROR: Unable to ping root child process"
+					print( msg ); logger.error( msg )
+
+					# raise an error to be caught by the UI
+					raise ChildProcessError(msg)
+
 			# create a queue so that the child can communicate up to the parent
 			if self.usb_handler_queue == None:
 				self.usb_handler_queue = multiprocessing.Queue()
