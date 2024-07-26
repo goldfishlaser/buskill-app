@@ -971,7 +971,7 @@ class BusKill:
 			print( msg ); logger.debug( msg )
 
 			# does this trigger require a root_child process?
-			if trigger == 'soft-shutdown' and self.OS_NAME_SHORT == 'mac':
+			if self.trigger == 'soft-shutdown' and self.OS_NAME_SHORT == 'mac':
 				# we cannot arm without a root_child running; ping it and make sure
 				# the root_child process is alive. otherwise, we'll give the user a
 				# false-sense of security, and that would be very bad
