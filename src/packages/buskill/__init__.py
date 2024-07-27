@@ -1125,8 +1125,7 @@ class BusKill:
 				self.usb_handler.status += 1
 
 			if queue_message == 'exception':
-				# the child just wants to let us know that it's alive; increment
-				# the status instance field for the child process
+				# the child through an exception; mark it
 				self.usb_handler.exception = True
 
 			else:
@@ -1151,6 +1150,9 @@ class BusKill:
 
 	# this works for both linux and mac
 	def armNix( self ):
+
+		# TODO remove me (exception catching testing)
+		#raise Exception( 'this is a test exception' )
 
 		# are we just simulating this USB removal?
 		if self.SIMULATE_HOTPLUG_REMOVAL:
@@ -1710,7 +1712,7 @@ class BusKill:
 				print( msg ); logger.debug( msg )
 
 				self._cconn.send((e, tb))
-				self.usb_handler_queue.put( 'exception' )
+				raise e
 
 		@property
 		def exception(self):

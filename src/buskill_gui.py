@@ -172,7 +172,9 @@ class MainWindow(Screen):
 			# buskill failed to arm/disarm; tell the user
 			
 			msg = "Unable to toggle buskill state"
-			msg += "\n\n" +str(e)
+			# TODO: why is 'e' not defined?
+			#msg += "\n\n" +str(e)
+			msg += "\n\nException: " +str(self.bk.usb_handler.exception[0])
 			print( msg )
 			self.dialog = DialogConfirmation(
 			 title = '[font=mdicons][size=30]\ue002[/size][/font] Error',
