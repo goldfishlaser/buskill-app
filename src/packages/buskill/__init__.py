@@ -1012,6 +1012,37 @@ class BusKill:
 			)
 			self.usb_handler.start()
 
+			# did we arm successfully?
+			while True:
+				# don't update the UI until the child process either sends us a
+				# 'ping' or throws an exception
+
+				self.check_usb_handler(0)
+
+				# TODO: remove prints
+				print( "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|" )
+				print( "usb_handler.status:|" +str(self.usb_handler.status)+ "|" )
+
+				# did the child process throw an exception?
+				if self.usb_handler._exception:
+					# the child process threw an exception; raise it now
+
+					msg = "ERROR: child process throw exception:" +str(e)
+					print( msg ); logger.error( msg )
+
+					# raise an error to be caught by the UI
+					raise ChildProcessError(msg)
+
+				# did the child process increment its status?
+				if self.usb_handler.status > 0:
+					# the child process appears to be working; continue with changing
+					# the GUI to indicate that we're armed successfully
+					break
+
+				# TODO: remove sleep, if possible
+				#import time
+				#time.sleep(1)
+
 			self.is_armed = True
 			msg = "INFO: BusKill is armed. Listening for removal event.\n"
 			msg+= "INFO: To disarm the CLI, exit with ^C or close this terminal"
@@ -1069,6 +1100,12 @@ class BusKill:
 				# the child told us to execute the trigger; do it!
 				self.TRIGGER_FUNCTION()
 				return queue_message
+
+			if queue_message == 'ping':
+				# the child just wants to let us know that it's alive; increment
+				# the status instance field for the child process
+				self.usb_handler.status += 1
+
 			else:
 				# no idea what the child said; log it as an error
 				msg = "ERROR: Unknown queue message from child usb_handler"
@@ -1112,6 +1149,8 @@ class BusKill:
 
 			try:
 				while True:
+					self.usb_handler_queue.put( 'ping' )
+
 					# this call is blocking (with a default timeout of 60 seconds)
 					# afaik there's no way to tell USBContext.handleEvents() to exit
 					# safely, so instead we just make the whole call to this arming
@@ -1151,6 +1190,8 @@ class BusKill:
 
 		w = Notification( self )
 		win32gui.PumpMessages()
+
+		self.usb_handler_queue.put( 'ping' )
 
 	#####################
 	# TRIGGER FUNCTIONS #
@@ -1625,6 +1666,10 @@ class BusKill:
 			multiprocessing.Process.__init__(self, *args, **kwargs)
 			self._pconn, self._cconn = multiprocessing.Pipe()
 			self._exception = None
+
+			# this is just some number that the child process constantly increments
+			# it can be used by the parent to check on the status of the child
+			self.status = 0
 
 		def run(self):
 

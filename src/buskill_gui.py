@@ -1116,10 +1116,7 @@ class BusKillSettingsScreen(Screen):
 				# the trigger was changed; update the runtime bk instance
 				self.bk.set_trigger( new_trigger )
 			except Exception as e:
-
-				# TODO: add logic to determine if set_trigger() failed (eg if we were
-				# unable to launch a root_child process) and: raise GUI error message
-				# && reset back to the previous trigger
+				# we got an exception when trying to change the trigger; show in GUI
 				msg = "Unable to set trigger to '" +str(new_trigger)+ "'"
 				msg += "\n\n" +str(e)
 				print( msg )

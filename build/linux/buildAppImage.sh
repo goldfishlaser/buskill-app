@@ -11,8 +11,8 @@ set -x
 #
 # Authors: Michael Altfield <michael@buskill.in>
 # Created: 2020-05-30
-# Updated: 2024-03-22
-# Version: 1.3
+# Updated: 2024-07-26
+# Version: 1.4
 ################################################################################
 
 ################################################################################
@@ -115,7 +115,7 @@ fi
 # get the app's dependencies
 tmpDir="`mktemp -d`" || exit 1
 pushd "${tmpDir}"
-git clone https://github.com/BusKill/buskill-app-deps.git
+git clone --no-tags --depth 1 https://github.com/BusKill/buskill-app-deps.git
 
 mkdir gnupg
 chmod 0700 gnupg
