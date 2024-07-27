@@ -1007,34 +1007,21 @@ class BusKill:
 
 			# launch an asynchronous child process that'll loop and listen for
 			# usb events
-			msg = "DEBUG: 0"; print( msg ); logger.error( msg ) # TODO: remove me
 			self.usb_handler = self.Process(
 			 target = self.ARM_FUNCTION
 			)
-			msg = "DEBUG: 1"; print( msg ); logger.error( msg ) # TODO: remove me
 			self.usb_handler.start()
-			msg = "DEBUG: 2"; print( msg ); logger.error( msg ) # TODO: remove me
 
 			# did we arm successfully?
 			start = time.time()
-			msg = "DEBUG: 3"; print( msg ); logger.error( msg ) # TODO: remove me
 			while True:
 				# don't update the UI until the child process either sends us a
 				# 'ping' or throws an exception
-				msg = "DEBUG: 4"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				self.check_usb_handler(0)
-				msg = "DEBUG: 5"; print( msg ); logger.error( msg ) # TODO: remove me
-
-				# TODO: remove prints
-				msg = "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|"; print(msg); logger.debug(msg)
-				msg = "usb_handler.exception:|" +str(self.usb_handler.exception)+ "|"; print(msg); logger.debug(msg)
-				msg = "DEBUG: 6"; print( msg ); logger.error( msg ) # TODO: remove me
-				msg = "usb_handler.status:|" +str(self.usb_handler.status)+ "|"; print(msg); logger.debug(msg)
-				msg = "DEBUG: 7"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				# did the child process throw an exception?
-				if self.usb_handler._exception:
+				if self.usb_handler.exception:
 					# the child process threw an exception; raise it now
 
 					msg = "ERROR: child process throw exception:" +str(e)
@@ -1150,9 +1137,6 @@ class BusKill:
 
 	# this works for both linux and mac
 	def armNix( self ):
-
-		# TODO remove me (exception catching testing)
-		#raise Exception( 'this is a test exception' )
 
 		# are we just simulating this USB removal?
 		if self.SIMULATE_HOTPLUG_REMOVAL:
