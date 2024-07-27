@@ -19,7 +19,7 @@ For more info, see: https://buskill.in/
 ################################################################################
 
 import platform, multiprocessing, traceback, subprocess
-import urllib.request, re, json, certifi, sys, os, math, shutil, tempfile, random, gnupg, configparser
+import urllib.request, re, json, certifi, sys, os, math, shutil, tempfile, random, gnupg, configparser, time
 import os.path
 from buskill_version import BUSKILL_VERSION
 from packaging.version import Version
@@ -1007,21 +1007,30 @@ class BusKill:
 
 			# launch an asynchronous child process that'll loop and listen for
 			# usb events
+			msg = "DEBUG: 0"; print( msg ); logger.error( msg ) # TODO: remove me
 			self.usb_handler = self.Process(
 			 target = self.ARM_FUNCTION
 			)
+			msg = "DEBUG: 1"; print( msg ); logger.error( msg ) # TODO: remove me
 			self.usb_handler.start()
+			msg = "DEBUG: 2"; print( msg ); logger.error( msg ) # TODO: remove me
 
 			# did we arm successfully?
+			start = time.time()
+			msg = "DEBUG: 3"; print( msg ); logger.error( msg ) # TODO: remove me
 			while True:
 				# don't update the UI until the child process either sends us a
 				# 'ping' or throws an exception
+				msg = "DEBUG: 4"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				self.check_usb_handler(0)
+				msg = "DEBUG: 5"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				# TODO: remove prints
 				print( "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|" )
+				msg = "DEBUG: 6"; print( msg ); logger.error( msg ) # TODO: remove me
 				print( "usb_handler.status:|" +str(self.usb_handler.status)+ "|" )
+				msg = "DEBUG: 7"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				# did the child process throw an exception?
 				if self.usb_handler._exception:
@@ -1039,9 +1048,16 @@ class BusKill:
 					# the GUI to indicate that we're armed successfully
 					break
 
-				# TODO: remove sleep, if possible
-				#import time
-				#time.sleep(1)
+#				# how much time has passed since we've been looping?
+#				current = time.time()
+#				if (current - start) > 0.1:
+#					# we've been waiting for more than 0.1 seconds; exit with error
+#					
+#					msg = "ERROR: timeout waiting for usb handler child process"
+#					print( msg ); logger.error( msg )
+#
+#					# raise an error to be caught by the UI
+#					raise ChildProcessError(msg)
 
 			self.is_armed = True
 			msg = "INFO: BusKill is armed. Listening for removal event.\n"
