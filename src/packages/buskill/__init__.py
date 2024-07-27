@@ -1124,6 +1124,11 @@ class BusKill:
 				# the status instance field for the child process
 				self.usb_handler.status += 1
 
+			if queue_message == 'exception':
+				# the child just wants to let us know that it's alive; increment
+				# the status instance field for the child process
+				self.usb_handler.exception = True
+
 			else:
 				# no idea what the child said; log it as an error
 				msg = "ERROR: Unknown queue message from child usb_handler"
@@ -1705,7 +1710,7 @@ class BusKill:
 				print( msg ); logger.debug( msg )
 
 				self._cconn.send((e, tb))
-				raise e
+				self.usb_handler_queue.put( 'exception' )
 
 		@property
 		def exception(self):
