@@ -1038,9 +1038,8 @@ class BusKill:
 
 				# how much time has passed since we've been looping?
 				current = time.time()
-				#if (current - start) > 0.1:
 				if (current - start) > 1:
-					# we've been waiting for more than 0.1 seconds; exit with error
+					# we've been waiting for more than 1 second; exit with error
 					
 					msg = "ERROR: timeout waiting for usb handler child process"
 					print( msg ); logger.error( msg )
