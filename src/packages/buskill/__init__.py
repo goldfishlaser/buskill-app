@@ -1028,6 +1028,7 @@ class BusKill:
 
 				# TODO: remove prints
 				msg = "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|"; print(msg); logger.debug(msg)
+				msg = "usb_handler.exception:|" +str(self.usb_handler.exception)+ "|"; print(msg); logger.debug(msg)
 				msg = "DEBUG: 6"; print( msg ); logger.error( msg ) # TODO: remove me
 				msg = "usb_handler.status:|" +str(self.usb_handler.status)+ "|"; print(msg); logger.debug(msg)
 				msg = "DEBUG: 7"; print( msg ); logger.error( msg ) # TODO: remove me
@@ -1703,6 +1704,7 @@ class BusKill:
 				print( msg ); logger.debug( msg )
 
 				self._cconn.send((e, tb))
+				raise e
 
 		@property
 		def exception(self):
