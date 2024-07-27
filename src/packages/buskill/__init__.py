@@ -1110,10 +1110,6 @@ class BusKill:
 				# the status instance field for the child process
 				self.usb_handler.status += 1
 
-			if queue_message == 'exception':
-				# the child through an exception; mark it
-				self.usb_handler.exception = True
-
 			else:
 				# no idea what the child said; log it as an error
 				msg = "ERROR: Unknown queue message from child usb_handler"
