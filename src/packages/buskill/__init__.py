@@ -1027,9 +1027,9 @@ class BusKill:
 				msg = "DEBUG: 5"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				# TODO: remove prints
-				print( "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|" )
+				msg = "usb_handler._exception:|" +str(self.usb_handler._exception)+ "|"; print(msg); logger.debug(msg)
 				msg = "DEBUG: 6"; print( msg ); logger.error( msg ) # TODO: remove me
-				print( "usb_handler.status:|" +str(self.usb_handler.status)+ "|" )
+				msg = "usb_handler.status:|" +str(self.usb_handler.status)+ "|"; print(msg); logger.debug(msg)
 				msg = "DEBUG: 7"; print( msg ); logger.error( msg ) # TODO: remove me
 
 				# did the child process throw an exception?
@@ -1048,16 +1048,16 @@ class BusKill:
 					# the GUI to indicate that we're armed successfully
 					break
 
-#				# how much time has passed since we've been looping?
-#				current = time.time()
-#				if (current - start) > 0.1:
-#					# we've been waiting for more than 0.1 seconds; exit with error
-#					
-#					msg = "ERROR: timeout waiting for usb handler child process"
-#					print( msg ); logger.error( msg )
-#
-#					# raise an error to be caught by the UI
-#					raise ChildProcessError(msg)
+				# how much time has passed since we've been looping?
+				current = time.time()
+				if (current - start) > 0.1:
+					# we've been waiting for more than 0.1 seconds; exit with error
+					
+					msg = "ERROR: timeout waiting for usb handler child process"
+					print( msg ); logger.error( msg )
+
+					# raise an error to be caught by the UI
+					raise ChildProcessError(msg)
 
 			self.is_armed = True
 			msg = "INFO: BusKill is armed. Listening for removal event.\n"
