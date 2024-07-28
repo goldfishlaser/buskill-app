@@ -9,8 +9,8 @@ set -x
 #
 # Authors: Michael Altfield <michael@buskill.in>
 # Created: 2020-06-24
-# Updated: 2024-03-22
-# Version: 1.0
+# Updated: 2024-07-27
+# Version: 1.1
 ################################################################################
 
 ################################################################################
@@ -356,16 +356,16 @@ export all_proxy='http://example.com:9999'
 # libusb depend for MacOS, from:
 # * https://libusb.info/
 # * https://github.com/libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.tar.bz2
-cp build/deps/libusb-1.0.23.tar.bz2 /tmp/
+cp build/deps/libusb-1.0.27.tar.bz2 /tmp/
 pushd /tmp
-tar -xjvf libusb-1.0.23.tar.bz2
-pushd libusb-1.0.23
+tar -xjvf libusb-1.0.27.tar.bz2
+pushd libusb-1.0.27
 ./configure
 make
 popd
 popd
 find /tmp | grep -i dylib
-cp /tmp/libusb-1.0.23/libusb/.libs/libusb-1.0.dylib src/
+cp /tmp/libusb-1.0.27/libusb/.libs/libusb-1.0.dylib src/
 
 # gpg depends for MacOS, from:
 # * https://github.com/BusKill/buskill-app/issues/36
