@@ -176,7 +176,7 @@ try:
 	# set owner of <this> binary to root:root
 	os.chown( our_filepath, 0, 0 )
 except Exception as e:
-	msg = "Failed to harden"
+	msg = "Failed to harden: " +str(e)
 	logging.warning(msg)
 
 #############
