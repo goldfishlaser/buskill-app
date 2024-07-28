@@ -167,6 +167,40 @@ logging.info(msg)
 #  * https://github.com/BusKill/buskill-app/issues/14#issuecomment-1279975783
 #  * https://github.com/BusKill/buskill-app/issues/77#issuecomment-2254299923
 
+msg = "sys.path:|" +str(sys.path)+ "|"
+logging.info(msg)
+
+msg = "sys.argv:|" +str(sys.argv)+ "|"
+logging.info(msg)
+
+msg = "sys.executable:|" +str(sys.executable)+ "|"
+logging.info(msg)
+
+msg = "sys.prefix:|" +str(sys.prefix)+ "|"
+logging.info(msg)
+
+msg = "os.environ:|" +str(os.environ)+ "|"
+logging.info(msg)
+
+msg = "os.getcwd():|" +str(os.getcwd())+ "|"
+logging.info(msg)
+
+msg = "__file__:|" +str(__file__)+ "|"
+logging.info(msg)
+
+msg = "sys._getframe().f_code.co_filename:|" +str(sys._getframe().f_code.co_filename)+ "|"
+logging.info(msg)
+
+import inspect
+msg = "inspect.getfile(inspect.currentframe()):|" +str(inspect.getfile(inspect.currentframe()))+ "|"
+logging.info(msg)
+
+msg = "inspect.stack():|" +str(inspect.stack())+ "|"
+logging.info(msg)
+
+msg = "inspect.getfile(inspect.currentframe()):|" +str(inspect.getfile(inspect.currentframe()))+ "|"
+logging.info(msg)
+
 our_filepath = os.path.abspath(__file__)
 
 msg = "Attempting to harden ourselves " +str(our_filepath)
