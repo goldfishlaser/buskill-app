@@ -5,8 +5,8 @@
   File:    packages/buskill/root_child_mac.py
   Authors: Michael Altfield <michael@buskill.in>
   Created: 2022-10-15
-  Updated: 2022-10-15
-  Version: 0.1
+  Updated: 2024-07-27
+  Version: 0.2
 
 This is a very small python script that is intended to be run with root privileges on MacOS platforms. It should be as small and paranoid as possible, and only contain logic that cannot run as the normal user due to insufficient permissions (eg shutting down the machine)
 
@@ -17,7 +17,7 @@ For more info, see: https://buskill.in/
 #                                   IMPORTS                                    #
 ################################################################################
 
-import logging, re, sys, subprocess
+import logging, re, sys, subprocess, os
 
 ################################################################################
 #                                  SETTINGS                                    #
@@ -140,6 +140,35 @@ msg = "=========================================================================
 logging.info(msg)
 msg = "root_child_mac is writing to log file '" +str(log_file_path)+ "'"
 logging.info(msg)
+
+#############
+# HARDENING #
+#############
+
+# SECURITY NOTE:
+# 
+#  Whenever you execute something as root, it's very important that you know
+#  _what_ you're executing. For example, never execute a script as root that is
+#  world-writeable. In general, assuming the script is named 'root_child.py':
+#
+#  1. Make sure root_child.py has permissions root:root 0500 (and therefore only
+#     writeable and executable by root)
+#  2. Make sure I specify the absolute path to root_child.py, and that path
+#     cannot be maliciously manipulated
+#  3. Make sure that root_child.py isn't actually a (sym)link
+#
+# The parent process that spawned us is able to check #2 and #3, but
+# unfortunately we can't package a .dmg with a file owned by root, so on
+# first run, we harden ourselves by changing the owner of this root_child file
+# to be owned by root:root
+# 
+# See also:
+#  * https://github.com/BusKill/buskill-app/issues/14#issuecomment-1272449172
+#  * https://github.com/BusKill/buskill-app/issues/14#issuecomment-1279975783
+#  * https://github.com/BusKill/buskill-app/issues/77#issuecomment-2254299923
+
+# set owner of <this> binary to root:root
+os.chown( os.path.abspath(__file__), 0, 0 )
 
 #############
 # MAIN LOOP #
