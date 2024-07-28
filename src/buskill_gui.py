@@ -172,8 +172,11 @@ class MainWindow(Screen):
 			# buskill failed to arm/disarm; tell the user
 			
 			msg = "Unable to toggle buskill state"
-			# for some reason 'e' is undefined, but we can get the exception thrown
-			# by the child process from its 'exception' instance field
+			# for some reason 'e' is sometimes undefined, but we can get the
+			# exception thrown by the child process from its 'exception'
+			# instance field
+			if e:
+				msg += "\n\nException: " +str(e)
 			if self.bk.usb_handler.exception[0]:
 				msg += "\n\nException: " +str(self.bk.usb_handler.exception[0])
 

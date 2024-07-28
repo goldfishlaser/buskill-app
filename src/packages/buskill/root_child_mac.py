@@ -167,8 +167,17 @@ logging.info(msg)
 #  * https://github.com/BusKill/buskill-app/issues/14#issuecomment-1279975783
 #  * https://github.com/BusKill/buskill-app/issues/77#issuecomment-2254299923
 
-# set owner of <this> binary to root:root
-os.chown( os.path.abspath(__file__), 0, 0 )
+our_filepath = os.path.abspath(__file__)
+
+msg = "Attempting to harden ourselves " +str(our_filepath)
+logging.info(msg)
+
+try:
+	# set owner of <this> binary to root:root
+	os.chown( our_filepath, 0, 0 )
+except Exception as e:
+	msg = "Failed to harden"
+	logging.warning(msg)
 
 #############
 # MAIN LOOP #
