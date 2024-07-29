@@ -944,8 +944,8 @@ class BusKill:
 			# set the default trigger to what's defined in the config file
 			self.config = configparser.ConfigParser()
 			self.config.read( self.CONF_FILE )
-			if self.config.has_option('buskill', 'trigger'):
-				trigger = self.config.get('buskill', 'trigger')
+			if self.config.has_option('buskill', 'buskill_trigger'):
+				trigger = self.config.get('buskill', 'buskill_trigger')
 			else:
 				trigger = 'lock-screen'
 			self.set_trigger( trigger )
