@@ -1,6 +1,6 @@
 ﻿.. _usb_storage_initialization:
 
-(optional) Initialize USB Storage
+Build a 3D-Printed BusKill Instructions
 =================================
 
 This section will describe how format the USB storage drive and put the BusKill software on it.
