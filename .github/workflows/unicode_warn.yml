@@ -43,6 +43,7 @@ jobs:
         set -x
         git config --global --add safe.directory .
         git config --global --add safe.directory "$(pwd)"
+        git checkout ${{ github.event.pull_request.head.ref }}
         git branch -a
         git log
 
