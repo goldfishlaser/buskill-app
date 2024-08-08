@@ -1,6 +1,6 @@
 ################################################################################
 # File:    .github/workflows/unicode_warn.yml
-# Version: 0.4
+# Version: 0.5
 # Purpose: Detects Unicode in PRs and comments the results of findings in PR
 # Authors: Michael Altfield <michael@michaelaltfield.net>
 # Created: 2021-11-20
@@ -37,8 +37,20 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         apt-get update
-        apt-get install -y git bsdmainutils
+        apt-get install -y git bsdmainutils curl jq
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+      shell: bash
+
+    - name: Get link to this run
+      run: |
+        # https://stackoverflow.com/a/75734917
+        workflow_id=$(curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/attempts/${GITHUB_RUN_ATTEMPT}/jobs | jq .jobs[].id )
+        RUN_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${workflow_id}
+        echo "RUN_URL=${RUN_URL}" >> $GITHUB_ENV
       shell: bash
  
     - name: Check diff for unicode
@@ -109,14 +121,14 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: "${{ env.UNICODE_HUMAN_RESULT }}"
+            body: "${{ env.UNICODE_HUMAN_RESULT }}\n\n([source](${{ env.RUN_URL }}))"
           })
 
     # Exit with or without error
     - name: Exit with or without error
       run: |
 
-        if [[ "${{ env.UNICODE_HUMAN_RESULT }}" | grep -Ei "ERROR|WARNING" ]]; then
+        if [[ $(echo "${{ env.UNICODE_HUMAN_RESULT }}" | grep -Ei "ERROR|WARNING") ]]; then
           exit 1
         else
           exit 0
