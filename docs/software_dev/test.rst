@@ -117,7 +117,7 @@ If you know of a way to:
 
 ...then please do `contact us <https://buskill.in/contact/>`_.
 
-Fortunately, the BusKill project is `sponsored by Mac Stadium <https://www.macstadium.com/opensource>`_. They donated a Mac Mini to us, which runs in their cloud. We tunnel VNC through SSH and use it to test the BusKill app.
+Fortunately, the BusKill project is `sponsored by Mac Stadium <https://www.macstadium.com/company/opensource>`_. They donated a Mac Mini to us, which runs in their cloud. We tunnel VNC through SSH and use it to test the BusKill app.
 
 .. note::
 
