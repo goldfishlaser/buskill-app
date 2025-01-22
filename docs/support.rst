@@ -51,12 +51,12 @@ After the app malfunctions, open the app menu and click ``Debug Log``.
 	* - .. figure:: /images/buskill_open_menu.png
 		:alt: screenshot shows the app running with the hamburger menu in the top-left highlighted
 		:align: center
-		:target: ../_images/buskill_open_menu.png
+		:target: ./_images/buskill_open_menu.png
 
 	  - .. figure:: /images/buskill_debug_log_1.png
 		:alt: screenshot shows the app running with the navigration drawer open, and the "Debug Log" option selected
 		:align: center
-		:target: ../_images/buskill_usb_debug_log_1.png
+		:target: ./_images/buskill_usb_debug_log_1.png
 
 Then click click the ``Copy Log`` button.
 
@@ -65,12 +65,12 @@ Then click click the ``Copy Log`` button.
 	* - .. figure:: /images/buskill_debug_log_2.png
 		:alt: screenshot shows the app running on the "Debug Log" screen with the button titled "Copy Log" highlighted
 		:align: center
-		:target: ../_images/buskill_debug_log_2.png
+		:target: ./_images/buskill_debug_log_2.png
 
 	  - .. figure:: /images/buskill_debug_log_3.png
 		:alt: screenshot shows the app running on the "Debug Log" screen with a pop-up modal that says "The full Debug Log has been copied to your clipboard."
 		:align: center
-		:target: ../_images/buskill_usb_debug_log_3.png
+		:target: ./_images/buskill_usb_debug_log_3.png
 
 Now you can paste the contents of your clipboard into the Bug Report on GitHub or send it in your email to us. Before publishing it on the Internet, you may want to obfuscate/redact your system's username if you wish to remain anonymous.
 
