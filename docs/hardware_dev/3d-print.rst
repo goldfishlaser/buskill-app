@@ -15,9 +15,6 @@ Header 2
 
 2. More ``code``, hooray
 
-3. Somé UTF-8°
-
-The UTF-8 quote character in this table used to cause python to go boom. Now docutils just silently ignores it.
 
 .. csv-table:: Things that are Awesome (on a scale of 1-11)
 	:quote: ”
@@ -31,16 +28,3 @@ The UTF-8 quote character in this table used to cause python to go boom. Now doc
 	Tabular Data, 5
 	Made up ratings, 11
 
-.. code::
-
-	A block of code
-
-.. code:: python
-
-	python.code('hooray')
-	
-.. code:: javascript
-
-	export function ƒ(ɑ, β) {}
-
-.. doctest:: ignored
