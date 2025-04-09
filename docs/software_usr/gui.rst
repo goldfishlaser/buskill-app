@@ -188,7 +188,7 @@ To update the app, open the app menu and click ``Update``.
 
   Though all file downloads are encrypted over https, your DNS lookups may not be encrypted. This means that someone eavesdropping on your internet connection may be able to see that you're using BusKill if you do an in-app update.
 
-  Please consider using `encrypted DNS <https://en.wikipedia.org/wiki/DNS_over_HTTPS>`_, or a `VPN software <https://www.privacyguides.org/vpn/>`_ that tunnels your DNS requests.
+  Please consider using `encrypted DNS <https://en.wikipedia.org/wiki/DNS_over_HTTPS>`_, or a `VPN software <https://www.privacyguides.org/en/vpn/>`_ that tunnels your DNS requests.
 
 The app will warn you that it is about to access the Internet, which could alert `Eve <https://en.wikipedia.org/wiki/Alice_and_Bob>`_ that you're using BusKill software (see above). If you accept these risks, click ``Check Update`` to proceed with checking for a new version of the app.
 
