@@ -5,4 +5,3 @@ Subtitle
 --------
 
 Example text.
-
