@@ -14,18 +14,17 @@ Bill of Materials
 ----------
 
 To assemble a BusKill Dead Man Switch 3D printed cord you will need: 
-* a usb-a extension cord, 
-* a usb hard drive capable of being attached to a caribiner, 
-* a caribiner, 
-* the plastic pieces in this file, 
-* a usb female port, 
-* a usb male, 
-* 4 magnets, 
-* 4 pogo pins, 
-* 4 pogo receptors, 
-* wire, 
-* 8 screws, 
-* and BusKill software. 
+* a usb-a extension cord
+* a usb hard drive capable of being attached to a caribiner
+* a caribiner
+* the plastic pieces in this file
+* a usb female port
+* a usb male
+* 4 magnets
+* 4 pogo pins
+* 4 pogo receptors
+* wire
+* 8 screws
 
 Tools
 ----------
@@ -45,7 +44,7 @@ Assemble the Breakaway Face
 Body <hardware_assembly>`
 
 
-.. figure:: /image.png
+.. figure:: /images/3Dassembly/pogopinwires.jpg
   :align: center
 
 
