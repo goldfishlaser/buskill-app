@@ -1,5 +1,5 @@
 Overview
-=========================================================
+=========
 
 Introduction
 ------------
@@ -9,8 +9,11 @@ The Breakaway is an assembly of a Breakaway printed part, 22 awg wire, pogo rece
 
 The Release is an assembly of a Release printed part, 22 awg wire, pogo pins, USB male, jig, and  magnets.
 
-Safety Precautions
-------------------
+Before you start
+-----------------
+
+Safety precautions
+^^^^^^^^^^^^^^^^^^
 - Handle the super glue with care to avoid skin contact.
 - Keep magnets away from electronic devices and magnetic storage media.
 - Use appropriate tools and safety equipment while assembling the parts.
@@ -20,7 +23,7 @@ Safety Precautions
   :alt: parts diagram
 
 Materials
----------
+^^^^^^^^^^
 - 3D printed parts - https://github.com/goldfishlaser/usb-a-magnetic-breakaway
 - Magnets
 - Pogo Pins
@@ -34,7 +37,7 @@ Materials
 - Solder
 
 Tools
----------
+^^^^^^
 - Wire stripper
 - Helping hands
 - Eraser putty
