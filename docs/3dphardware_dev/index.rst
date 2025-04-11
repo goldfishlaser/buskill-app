@@ -1,7 +1,7 @@
 .. _3dphardware_dev:
 
-Assembly Instructions for a 3D-Printed USB-A Magnetic Release for BusKill cable
-========================================================
+3D-Printed Magnetic Release Developer Guide
+==========================================
 .. image:: /images/3dassembly/buskillassembled.png
   :width: 400
   :alt: photograph of assembled 3D printed magnetic release
