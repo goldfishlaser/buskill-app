@@ -14,6 +14,7 @@ This guide contains assembly instructions for a magnetic breakaway release using
 
 .. toctree::
    overview
+   printparts
    preppogos
    release
    breakaway

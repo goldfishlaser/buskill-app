@@ -1,14 +1,12 @@
-Assembling the Release
-=======================
+Step 3: Assembling the Release
+===============================
+
+How to assemble the release for the BusKill cable.
 
 Before you start
 -----------------
 
-Overview
-^^^^^^^^^^^^^
-How to assemble the release for the BusKill cable.
-
-Safety Precautions
+Precautions
 ^^^^^^^^^^^^^^^^^^^
 - Handle the super glue with care to avoid skin contact.
 - Keep magnets away from electronic devices and magnetic storage media.
@@ -21,8 +19,8 @@ You will need
 - Superglue
 - Screws
 
-Steps
------
+Procedure
+----------
 
 1. **Assemble the Parts**:
    - Align the 3D printed parts and assemble them together.

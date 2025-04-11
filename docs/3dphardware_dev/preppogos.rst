@@ -1,12 +1,10 @@
-Prep the pogo connections
-===========================
+Step 2: Prep the pogo connections
+==================================
+
+We create both pogo connections first to save time as we wait for the glue to dry for both.
 
 Before you start
 -----------------
-
-Overview
-^^^^^^^^^^
-We create both pogo connections first to save time as we wait for the glue to dry for both.
 
 Precautions
 ^^^^^^^^^^^^

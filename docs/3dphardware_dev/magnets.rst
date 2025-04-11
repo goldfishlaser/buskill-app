@@ -1,14 +1,12 @@
-Adding the magnets
-===================
+Step 5: Adding the magnets
+===========================
 
-Before you start
------------------
-
-Overview
-^^^^^^^^^^^^
 We add the magnets last for a few reasons. 
 - Orientation is the easiest thing to mess up. It's good to test your connection before adding the magnets.
 - Other components such as pogo pins and wires and soldering guns attract to magnets and so their presense during earlier parts of the assembly can be frustrating and dangerous.
+
+Before you start
+-----------------
 
 Precautions
 ^^^^^^^^^^^^
@@ -22,7 +20,7 @@ You will need
 - superglue
 - wire crimper or pliers
 
-Steps
+Procedure
 -------
 
 1. Stack the cubes 2x2. 

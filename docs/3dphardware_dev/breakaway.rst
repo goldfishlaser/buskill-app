@@ -1,12 +1,10 @@
-Assembling the Breakaway
-==========================
+Step 4: Assembling the Breakaway
+==================================
+
+How to assemble the breakaway for the BusKill cable.
 
 Before you start
 ------------
-
-Overview
-^^^^^^^^^
-How to assemble the breakaway for the BusKill cable.
 
 Safety Precautions
 ^^^^^^^^^^^^^^^^^^^
@@ -22,8 +20,8 @@ You will need
 - Screws
 
 
-Steps
------
+Procedure
+----------
 1. **Assemble the Parts**:
    - Align the 3D printed parts and assemble them together.
    - Use screws to secure the parts together.
