@@ -10,9 +10,7 @@
 
    This project is under active development.
 
-In this guide
---------------
-Assembly instructions for a magnetic breakaway release using a 3D-printed shell for encasing easily sourceable components.
+This guide contains assembly instructions for a magnetic breakaway release using a 3D-printed shell for encasing easily sourceable components.
 
 .. toctree::
    overview
