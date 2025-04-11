@@ -1,11 +1,28 @@
 Prep the pogo connections
-=========================================================
+===========================
 
 Before you start
-------------
+-----------------
+
+Overview
+^^^^^^^^^^
+We create both pogo connections first to save time as we wait for the glue to dry for both.
+
+Precautions
+^^^^^^^^^^^^
 - Make sure to avoid globs of solder
 - Pogos get hot during soldering
 - Use proper ventiliation and PPE
+
+You will need
+^^^^^^^^^^^^^^
+- 22 awg wire
+- Pogo pins
+- Pogo contacts
+- wire jigs
+- superglue
+- soldering iron
+- solder
 
 Steps
 ------------

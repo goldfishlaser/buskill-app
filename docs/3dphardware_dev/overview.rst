@@ -12,37 +12,34 @@ The Release is an assembly of a Release printed part, 22 awg wire, pogo pins, US
 Before you start
 -----------------
 
-Safety precautions
+Precautions
 ^^^^^^^^^^^^^^^^^^
 - Handle the super glue with care to avoid skin contact.
 - Keep magnets away from electronic devices and magnetic storage media.
 - Use appropriate tools and safety equipment while assembling the parts.
 
-.. image:: images/partsdiagram.png
+.. image:: /images/3dassembly/partsdiagram.png
   :width: 400
   :alt: parts diagram
 
-Materials
-^^^^^^^^^^
-- 3D printed parts - https://github.com/goldfishlaser/usb-a-magnetic-breakaway
-- Magnets
-- Pogo Pins
-- Pogo Contacts
-- 28 AWG Wire
-- Super glue
-- USB male
-- USB female
-- Cable
-- Screws
-- Solder
-
-Tools
-^^^^^^
-- Wire stripper
-- Helping hands
-- Eraser putty
-- Screwdriver
-- Soldering iron
+You will need
+^^^^^^^^^^^^^^
+  - 3D printed parts - https://github.com/goldfishlaser/usb-a-magnetic-breakaway
+  - Magnets
+  - Pogo Pins
+  - Pogo Contacts
+  - 28 AWG Wire
+  - Super glue
+  - USB male
+  - USB female
+  - Cable
+  - Screws
+  - Solder
+  - Wire stripper
+  - Helping hands
+  - Eraser putty
+  - Screwdriver
+  - Soldering iron
 
 
 
