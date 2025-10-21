@@ -10,7 +10,7 @@
 Welcome to BusKill's documentation!
 ===================================
 
-Welcome! BusKill's documentation is split into 4 main parts:
+Welcome! BusKill's documentation is split into 5 main parts:
 
 - :ref:`hardware_usr`
 - :ref:`software_usr`
@@ -18,9 +18,12 @@ Welcome! BusKill's documentation is split into 4 main parts:
 - :ref:`3dphardware_dev`
 - :ref:`software_dev`
 
+
 For information on using the BusKil App, see :ref:`software_usr`.
 
 For information on how to build your own BusKill cable, see :ref:`hardware_dev`.
+
+For information on how to build your own 3D-printed BusKill magnetic release, see - :ref:`3dphardware_dev`.
 
 .. note:: If you're looking to order a pre-assembled BusKill cable, you can `buy a BusKill cable here <https://buskill.in/buy>`_.
 

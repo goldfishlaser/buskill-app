@@ -22,16 +22,18 @@ Precautions
 
 You will need
 ^^^^^^^^^^^^^^^
-  - 3D printed parts - https://github.com/goldfishlaser/usb-a-magnetic-breakaway
-  - Magnets
-  - Pogo Pins
-  - Pogo Contacts
-  - 28 AWG Wire
+  - 3D printed parts - https://github.com/BusKill/usb-a-magnetic-breakaway
+  - 4 x 1/8” Cube Magnets 
+  - 4 x Standard Spring Loaded Pin for 22 AWG wire and 0.105" (2.66mm) working height
+  - 4 x Spring-Loaded Target Contact for 22 AWG wire and Flat Face for pressfit into .56mm mounting hole 
+  - Up to 22 AWG Wire
   - Super glue
-  - USB male
-  - USB female
-  - Cable
+  - USB hardware (male)
+  - USB port (female) 
+  - USB 2.0 Cable
   - Screws
+
+Tools:
   - Solder
   - Wire stripper
   - Helping hands

@@ -32,6 +32,13 @@ Steps
 	:width: 400
 	:alt: photograph of wires soldered to pogo pins
 
-3. Glue the wires into the jig
+3. Insert the pogo pins into the Release Face and then secure the wires by sandwiching them in the jig and adding superglue.
+
+
+.. image:: /images/3dassembly/pogojigassembly.jpg
+	:width: 400
+	:alt: photograph of wires soldered to pogo pins
+
 4. Solder 4 of the wires to pogo contacts
-5. Glue the wires onto the jig
+5. Insert the pogo contacts into the Breakaway Face and then secure the wires by sandwiching them in the jig and adding superglue.
+
