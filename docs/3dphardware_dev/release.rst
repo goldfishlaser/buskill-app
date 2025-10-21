@@ -1,10 +1,10 @@
 Step 3: Assembling the Release
-===============================
+================================
 
 How to assemble the release for the BusKill cable.
 
 Before you start
------------------
+------------------
 
 Precautions
 ^^^^^^^^^^^^^^^^^^^
@@ -13,14 +13,14 @@ Precautions
 - Use appropriate tools and safety equipment while assembling the parts.
 
 You will need
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 - Prepared pogo wires
 - USB female
 - Superglue
 - Screws
 
 Procedure
-----------
+-----------
 
 1. **Assemble the Parts**:
    - Align the 3D printed parts and assemble them together.
@@ -31,7 +31,7 @@ Procedure
    - Ensure that the connection is secure and that the cable releases properly when pulled.
 
 Troubleshooting
----------------
+-----------------
 - If the parts do not fit together properly, check for any leftover support material or rough edges and sand them down.
 
 

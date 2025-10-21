@@ -4,16 +4,16 @@ Step 4: Assembling the Breakaway
 How to assemble the breakaway for the BusKill cable.
 
 Before you start
-----------------
+------------------
 
 Safety Precautions
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 - Handle the super glue with care to avoid skin contact.
 - Keep magnets away from electronic devices and magnetic storage media.
 - Use appropriate tools and safety equipment while assembling the parts.
 
 You will need
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 - Prepared pogo wires
 - USB male
 - Superglue
@@ -21,7 +21,7 @@ You will need
 
 
 Procedure
-----------
+-----------
 1. **Assemble the Parts**:
    - Align the 3D printed parts and assemble them together.
    - Use screws to secure the parts together.

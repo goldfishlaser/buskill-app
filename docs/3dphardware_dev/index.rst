@@ -1,7 +1,7 @@
 .. _3dphardware_dev:
 
 3D-Printed Magnetic Release Developer Guide
-==========================================
+==============================================
 .. image:: /images/3dassembly/buskillassembled.png
   :width: 400
   :alt: photograph of assembled 3D printed magnetic release
@@ -33,7 +33,7 @@ Halfacree, Gareth (May 08, 2024). `"Melanie Allen Wants to Bring Dead-Man Switch
 
 More Information
 -----------------
-
+-
 - `What is BusKill? <https://tech.michaelaltfield.net/2020/01/02/buskill-laptop-kill-cord-dead-man-switch>`_
 - `BusKill YouTube <https://www.youtube.com/channel/UC5Njxb027m2OmrocrH33oew>`_
 - `BusKill Crowdsupply <https://www.crowdsupply.com/alt-shift/buskill>`_
