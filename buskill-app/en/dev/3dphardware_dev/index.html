@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D-Printed Magnetic Release Developer Guide &mdash; BusKill version documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favico_150b.202002.png"/>
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/buskill_202007_200px.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">What is BusKill?:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hardware_usr/index.html">Hardware User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_usr/index.html">Software User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware_dev/index.html">Hardware Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_dev/index.html">Software Developer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attribution.html">Attribution</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BusKill</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">3D-Printed Magnetic Release Developer Guide</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/buskill/buskill-app/blob/master/docs/3dphardware_dev/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-printed-magnetic-release-developer-guide">
+<span id="dphardware-dev"></span><h1>3D-Printed Magnetic Release Developer Guide<a class="headerlink" href="#d-printed-magnetic-release-developer-guide" title="Permalink to this heading"></a></h1>
+<a class="reference internal image-reference" href="../_images/buskillassembled.png"><img alt="photograph of assembled 3D printed magnetic release" src="../_images/buskillassembled.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project is under active development.</p>
+</div>
+<p>This guide contains assembly instructions for a magnetic breakaway release using a 3D-printed shell for encasing easily sourceable components.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">About the 3D-Printed Magnetic Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#precautions">Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="printparts.html">Step 1: Print the parts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="printparts.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="printparts.html#precautions">Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="printparts.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="printparts.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preppogos.html">Step 2: Prep the pogo connections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preppogos.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="preppogos.html#precautions">Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preppogos.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="preppogos.html#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Step 3: Assembling the Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release.html#precautions">Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="release.html#procedure">Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="breakaway.html">Step 4: Assembling the Breakaway</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="breakaway.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="breakaway.html#safety-precautions">Safety Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="breakaway.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="breakaway.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="magnets.html">Step 5: Adding the magnets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="magnets.html#before-you-start">Before you start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="magnets.html#precautions">Precautions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="magnets.html#you-will-need">You will need</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="magnets.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id1">Breakaway End</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id2">BusKill Cable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id3">BusKill Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id4">Jig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id5">Magnetic Coupler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id6">Magnetic Release Cord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id7">Pogo Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id8">Pogo Pin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#pogo-receptor">Pogo Receptor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id9">Release End</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id10">USB A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id11">USB Ejection Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#usb-extender-cord">USB Extender Cord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#id12">USB Insertion Event</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="in-the-news">
+<h2>In the News<a class="headerlink" href="#in-the-news" title="Permalink to this heading"></a></h2>
+<p>Hill, Ash (May 02, 2023). <a class="reference external" href="https://www.tomshardware.com/news/3d-printable-buskill-cable">“3D Print Your Own USB BusKill Module to Protect Data”.</a> Tom’s Hardware.</p>
+<p>Halfacree, Gareth (May 08, 2024). <a class="reference external" href="https://www.hackster.io/news/melanie-allen-wants-to-bring-dead-man-switches-to-all-with-a-3d-printable-buskill-adapter-8383a371ee2e">“Melanie Allen Wants to Bring Dead-Man Switches to All with a 3D-Printable BusKill Adapter.</a> hackster.io</p>
+</section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tech.michaelaltfield.net/2020/01/02/buskill-laptop-kill-cord-dead-man-switch">What is BusKill?</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/channel/UC5Njxb027m2OmrocrH33oew">BusKill YouTube</a></p></li>
+<li><p><a class="reference external" href="https://www.crowdsupply.com/alt-shift/buskill">BusKill Crowdsupply</a></p></li>
+<li><p><a class="reference external" href="https://opencollective.com/buskill">BusKill Open Collective</a></p></li>
+<li><p><a class="reference external" href="https://docs.buskill.in">BusKill Documentation</a></p></li>
+</ul>
+<ul class="simple">
+<li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Michael Altfield and the BusKill team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Alternate Versions</span>
+      v: dev
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+          
+          <dd><a href="/buskill-app/en/3DP-Docs/">3DP-Docs</a></dd>
+          
+        
+           <strong> 
+          <dd><a href="/buskill-app/en/dev/">dev</a></dd>
+           </strong> 
+        
+          
+          <dd><a href="/buskill-app/en/stable/">stable</a></dd>
+          
+        
+      </dl>
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="/buskill-app/en/dev/buskill-docs_en_dev.pdf">pdf</a></dd>
+        
+          <dd><a href="/buskill-app/en/dev/buskill-docs_en_dev.epub">epub</a></dd>
+        
+      </dl>
+      
+      
+      <hr/>
+      Free theme by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
