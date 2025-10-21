@@ -15,7 +15,7 @@ Welcome! BusKill's documentation is split into 4 main parts:
 - :ref:`hardware_usr`
 - :ref:`software_usr`
 - :ref:`hardware_dev`
-- :ref:'3dphardware_dev'
+- :ref:`3dphardware_dev`
 - :ref:`software_dev`
 
 For information on using the BusKil App, see :ref:`software_usr`.
