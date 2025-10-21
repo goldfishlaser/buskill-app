@@ -53,6 +53,7 @@ The reader may be interested to investigate the following similar projects:
  * `luksAddNuke <http://lxer.com/module/newswire/view/103692/index.html>`_
  * `cryptsetup-nuke-keys <https://gitlab.com/kalilinux/packages/cryptsetup-nuke-keys>`_
  * `TAILS Memory Erasure <https://tails.boum.org/contribute/design/memory_erasure/>`_
+ * `Kicksecure ram-wipe <https://www.kicksecure.com/wiki/Ram-wipe/>`_
  * `TEDD (Transparent Emergency Data Destruction) <https://bitbucket.org/ausiv4/tedd/src/default/>`_
  * `s53 <https://github.com/BrassHornCommunications/s53>`_
  * `swatd <https://github.com/defuse/swatd>`_
@@ -67,3 +68,4 @@ The reader may be interested to investigate the following similar projects:
  * `pam_party <https://github.com/x13a/pam-party>`_
  * `AirWatch <https://vandersecurity.com/airwatch>`_
  * `swiftGuard <https://github.com/Lennolium/swiftGuard>`_
+ * `gokill <https://github.com/k4lipso/gokill>`_
