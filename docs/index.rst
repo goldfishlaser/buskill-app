@@ -47,6 +47,7 @@ For information on how to build your own BusKill cable, see :ref:`hardware_dev`.
    hardware_usr/index
    software_usr/index
    hardware_dev/index
+   3dphardware_dev/index
    software_dev/index
 
 .. toctree::
