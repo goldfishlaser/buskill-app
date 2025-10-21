@@ -4,7 +4,7 @@ Step 4: Assembling the Breakaway
 How to assemble the breakaway for the BusKill cable.
 
 Before you start
-------------
+----------------
 
 Safety Precautions
 ^^^^^^^^^^^^^^^^^^^
